@@ -16,7 +16,11 @@ main {
     height: 100%;
     margin: 0;
     padding: 0;
-    
+}
+
+img {
+    width: 100%;
+    height: 100%;
 }
 
 #game {
@@ -26,7 +30,7 @@ main {
     padding: 0;
 }
 
- #bg {
+ #game_background {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -42,7 +46,7 @@ main {
     z-index: 50;
 } 
 
-.game-element-containter {
+.game_element_containter {
     /* display: none; */
     top: 5%;
     left: 5%;
@@ -50,50 +54,106 @@ main {
     z-index: 100;
 }
 
+.game_ui_containter {
+    /* display: none; */
+    top: 40%;
+    left: 40%;
+    position: absolute;
+    z-index: 100;
+}
+
+/* --- Game Elements --- */
+
 #container_ufo {
     margin: 0;
     padding: 0;
-    scale: 7%;
-    translate: 5% -48%;
+    scale: 0.25;
+    translate: 265% 170%;
 }
 
 #container_airplane {
     margin: 0;
     padding: 0;
-    scale: 17.5%;
+    scale: 0.75;
     translate: 25% -18%;
 }
 
 #container_fighter_jet {
     margin: 0;
     padding: 0;
-    scale: 8%;
-    translate: -15% -15%;
+    scale: 0.4;
+    translate: 130% 100%;
     rotate: -10deg;
 }
 
 #container_hot_air_balloon {
     margin: 0;
     padding: 0;
-    scale: 5%;
-    translate: -30% -35%;
+    scale: 0.25;
+    translate: 0% 10%;
 }
 
 #container_aa_gun {
     margin: 0;
     padding: 0;
-    scale: 25%;
-    translate: -35% 16%;
+    scale: 0.75;
+    translate: 0% 280%;
 }
 
 #container_weather_balloon {
     margin: 0;
     padding: 0;
-    scale: 25%;
-    translate: 5% -42%;
+    scale: 0.3;
+    translate: 195% -40%;
 }
 
-img {
-    width: 100%;
-    height: 100%;
+#container_explosion {
+    margin: 0;
+    padding: 0;
+    scale: 0.55;
+    translate: 190% 270%;
 }
+
+/* --- Game HUD --- */
+
+#container_ui_time {
+    margin: 0;
+    padding: 0;
+    scale: 1;
+    translate: -5% 650%;
+}
+
+#container_ui_star_gold {
+    margin: 0;
+    padding: 0;
+    scale: 0.2;
+    translate: 175% 65%;
+}
+
+#container_ui_star_metal {
+    display: none;
+    margin: 0;
+    padding: 0;
+    scale: 0.5;
+    translate: 0% 0%;
+}
+
+#container_ui_skull {
+    margin: 0;
+    padding: 0;
+    scale: 0.2;
+    translate: 175% 85%;
+}
+
+#points_wrapper {
+    margin: 0;
+    padding: 0;
+    background-color: #b6b6b6;
+    color: #333;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: 3px solid #666;
+    border-radius: 10px;
+
+}
+/* --- Animations --- */

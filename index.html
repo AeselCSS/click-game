@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/styles/style.css" />
-    <script src="./assets/js/script.js" defer></script>
+    <link rel="stylesheet" href="assets/styles/style.css" />
+    <link rel="stylesheet" href="assets/styles/animations.css" />
+    <script src="assets/js/script.js" defer></script>
     <title>Airspace Defence</title>
   </head>
   <body>
@@ -18,62 +19,92 @@
         <!-- <div id="game_middleground"></div>
             <div id="game_foreground"></div> -->
         <div id="game_elements">
-          <div class="game_element_containter" id="container_ufo">
-            <img src="./assets/img/game-elements/Clicker-game-alien-ship.svg" />
-          </div>
-
-          <div class="game_element_containter" id="container_airplane">
+          <div class="ufo" id="container_ufo">
             <img
-              src="./assets/img/game-elements/Clicker-game-Commercial-airplane.svg"
+              class="sprite_width"
+              id="sprite_ufo"
+              src="assets/img/game-elements/Clicker-game-alien-ship.svg"
             />
           </div>
 
-          <div class="game_element_containter" id="container_fighter_jet">
+          <div class="airplane" id="container_airplane">
             <img
-              src="./assets/img/game-elements/Clicker-game-fighter-jet.svg"
+              class="sprite_width"
+              id="sprite_airplane"
+              src="assets/img/game-elements/Clicker-game-Commercial-airplane.svg"
             />
           </div>
 
-          <div class="game_element_containter" id="container_hot_air_balloon">
+          <div class="fighter_jet" id="container_fighter_jet">
             <img
-              src="./assets/img/game-elements/Clicker-game-hot-air-balloon.svg"
+              class="sprite_width"
+              id="sprite_fighter_jet"
+              src="assets/img/game-elements/Clicker-game-fighter-jet.svg"
             />
           </div>
 
-          <div class="game_element_containter" id="container_aa_gun">
-            <img src="./assets/img/game-elements/clicker-game-howitzer.svg" />
-          </div>
-
-          <div class="game_element_containter" id="container_weather_balloon">
+          <div class="hot_air_balloon" id="container_hot_air_balloon">
             <img
-              src="./assets/img/game-elements/Clicker-game-weather-balloon.svg"
+              class="sprite_width"
+              id="sprite_hot_air_balloon"
+              src="assets/img/game-elements/Clicker-game-hot-air-balloon.svg"
             />
           </div>
 
-          <div class="game_element_containter" id="container_explosion">
-            <img src="./assets/img/game-elements/Clicker-game-explosion.svg" />
+          <div class="weather_balloon" id="container_weather_balloon">
+            <img
+              class="sprite_width"
+              id="sprite_weather_balloon"
+              src="assets/img/game-elements/Clicker-game-weather-balloon.svg"
+            />
+          </div>
+
+          <div class="explosion" id="container_explosion">
+            <img
+              class="sprite_width"
+              id="sprite_explosion"
+              src="assets/img/game-elements/Clicker-game-explosion.svg"
+            />
+          </div>
+
+          <div class="aa_gun" id="container_aa_gun">
+            <img class="sprite_width" id="sprite_aa_gun""
+            src="assets/img/game-elements/clicker-game-howitzer.svg" />
           </div>
         </div>
 
         <div id="game_ui">
-          <div class="game_ui_containter" id="container_ui_time">
-            <img src="./assets/img/game-ui/Clicker-ui-time_bar.svg"/>
-          </div>
-          <div id="points_wrapper">
-            <div class="game_ui_containter" id="container_ui_star_gold">
-                <img src="./assets/img/game-ui/Clicker-ui-star-gold.svg"/>
-            </div>
-            <p>Points:</p>
+          <div class="timer_bar" id="container_timer_bar">
+            <img
+              class="sprite_width"
+              id="sprite_timer_bar"
+              src="assets/img/game-ui/Clicker-ui-time_bar.svg"
+            />
           </div>
 
-          <div class="game_ui_containter" id="container_ui_star_metal">
-            <img src="./assets/img/game-ui/Clicker-ui-star-metal.svg" />
+          <div class="star_gold" id="container_star_gold">
+            <img
+              class="sprite_width"
+              id="sprite_star_gold"
+              src="assets/img/game-ui/Clicker-ui-star-gold.svg"
+            />
           </div>
 
-          <div class="game_ui_containter" id="container_ui_skull">
-            <img src="./assets/img/game-ui/Clicker-ui-skull.svg" />
+          <div class="star_metal" id="container_star_metal">
+            <img
+              class="sprite_width"
+              id="sprite_star_metal"
+              src="assets/img/game-ui/Clicker-ui-star-metal.svg"
+            />
           </div>
 
+          <div class="skull" id="container_skull">
+            <img
+              class="sprite_width"
+              id="sprite_skull"
+              src="assets/img/game-ui/Clicker-ui-skull.svg"
+            />
+          </div>
         </div>
       </section>
 

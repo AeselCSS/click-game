@@ -25,6 +25,7 @@ img {
     display: grid;
     grid-template: 100% / 100%;
     position: relative;
+    cursor: url(../img/game-ui/Clicker-ui-crosshair.svg), auto;
 }
 
  #game_background {
@@ -35,115 +36,95 @@ img {
 
 /* --- Game Elements --- */
 
+.elements {
+    position: absolute;
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+    top: 50%;
+    left: -15%;
+}
+
 #container_ufo {
-    top: 30%;
-    left: 30%;
-    margin: 0;
-    padding: 0;
     width: 7.5%;
-    position: absolute;
-    z-index: 100;
-}
-
-#container_airplane {
-    /* display: none; */
-    top: 10%;
-    left: 30%;
-    margin: 0;
-    padding: 0;
-    width: 12%;
-    position: absolute;
-    z-index: 100;
-}
-
-#container_fighter_jet {
-    /* display: none; */
-    top: 40%;
-    left: 70%;
-    margin: 0;
-    padding: 0;
-    width: 8%;
-    rotate: -10deg;
-    position: absolute;
-    z-index: 100;
-}
-
-#container_hot_air_balloon {
-    /* display: none; */
-    top: 25%;
-    left: 10%;
-    margin: 0;
-    padding: 0;
-    width: 5%;
-    position: absolute;
-    z-index: 100;
-}
-
-#container_aa_gun {
-    /* display: none; */
-    top: 75%;
-    left: 7.5%;
-    margin: 0;
-    padding: 0;
-    width: 15%;
-    position: absolute;
-    z-index: 100;
+    top: -15%;
+    left: 20%;
 }
 
 #container_weather_balloon {
-    /* display: none; */
-    top: 5%;
-    left: 77.5%;
-    margin: 0;
-    padding: 0;
     width: 5%;
-    position: absolute;
-    z-index: 100;
 }
 
-#container_explosion {
-    /* display: none; */
-    top: 72%;
-    left: 40%;
-    margin: 0;
-    padding: 0;
-    width: 12.5%;
-    position: absolute;
-    z-index: 100;
+#container_fighter_jet {
+    width: 8%;
+    rotate: -10deg;
 }
 
-/* --- Game HUD --- */
-
-#container_timer_bar {
-    /* display: none; */
-    bottom:0%;
-    left: 37%;
-    margin: 0;
-    padding: 0;
-    width: 25%;
-    position: absolute;
-    z-index: 150;
+#container_fighter_jet_2 {
+    width: 8%;
+    top: 20%;
+    left: 100%;
 }
 
-#container_star_gold {
-    /* display: none; */
-    bottom:10%;
-    right: 10%;
-    margin: 0;
-    padding: 0;
-    width: 3%;
-    position: absolute;
-    z-index: 100;
+#container_fighter_jet_3 {
+    width: 8%;
+    rotate: -10deg;
 }
 
-#container_skull {
-    /* display: none; */
-    bottom:3%;
-    right: 10%;
-    margin: 0;
-    padding: 0;
-    width: 3%;
-    position: absolute;
-    z-index: 100;
+#container_airplane {
+    width: 12%;
+}
+
+#container_hot_air_balloon {
+    width: 5%;
+}
+
+#container_aa_gun {
+    width: 15%;
+    top: 80%;
+    left: 10%;
+}
+
+/* --- resizing and repositioning of each explosions  --- */
+#container_ufo_explosion {
+    width: 140%;
+    top: -10%;
+    left: -20%;
+}
+
+#container_fighter_jet_explosion {
+    width: 100%;
+    top: -35%;
+    left: 0%;
+}
+
+#container_fighter_jet_2_explosion {
+    width: 100%;
+    top: -35%;
+    left: 0%;
+}
+
+#container_fighter_jet_3_explosion {
+    width: 100%;
+    top: -35%;
+    left: 0%;
+}
+
+#container_weather_balloon_explosion {
+    width: 150%;
+    top: 0%;
+    left: -23%;
+}
+
+#container_airplane_explosion {
+    width: 80%;
+    top: -20%;
+    left: 20%;
+}
+
+#container_hot_air_balloon_explosion {
+    width: 150%;
+    top: 40%;
+    left: -25%;
 }
 

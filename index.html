@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/styles/style.css" />
-    <link rel="stylesheet" href="assets/styles/animations.css" />
-    <script src="assets/js/script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/animations.css">
+    <link rel="stylesheet" href="./assets/styles/ui.css">
     <title>Airspace Defence</title>
   </head>
   <body>
@@ -16,58 +16,115 @@
         <div id="game_background">
           <!-- game background -->
         </div>
-        <!-- <div id="game_middleground"></div>
-            <div id="game_foreground"></div> -->
+
         <div id="game_elements">
-          <div class="ufo" id="container_ufo">
+
+          <div class="ufo elements" id="container_ufo">
             <img
               class="sprite_width"
               id="sprite_ufo"
               src="assets/img/game-elements/Clicker-game-alien-ship.svg"
             />
-          </div>
-
-          <div class="airplane" id="container_airplane">
+            <div class="elements explosion" id="container_ufo_explosion">
             <img
               class="sprite_width"
-              id="sprite_airplane"
-              src="assets/img/game-elements/Clicker-game-Commercial-airplane.svg"
+              id="sprite_explosion"
+              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
             />
           </div>
+          </div>
 
-          <div class="fighter_jet" id="container_fighter_jet">
+          <div class="fighter_jet elements" id="container_fighter_jet">
             <img
               class="sprite_width"
               id="sprite_fighter_jet"
               src="assets/img/game-elements/Clicker-game-fighter-jet.svg"
             />
-          </div>
-
-          <div class="hot_air_balloon" id="container_hot_air_balloon">
+            <div class="elements explosion" id="container_fighter_jet_explosion">
             <img
               class="sprite_width"
-              id="sprite_hot_air_balloon"
-              src="assets/img/game-elements/Clicker-game-hot-air-balloon.svg"
+              id="sprite_explosion"
+              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
             />
           </div>
+          </div>
 
-          <div class="weather_balloon" id="container_weather_balloon">
+          <div class="fighter_jet_2 elements" id="container_fighter_jet_2">
+            <img
+              class="sprite_width"
+              id="sprite_fighter_jet_2"
+              src="assets/img/game-elements/Clicker-game-fighter-jet.svg"
+            />
+            <div class="elements explosion" id="container_fighter_jet_2_explosion">
+            <img
+              class="sprite_width"
+              id="sprite_explosion"
+              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
+            />
+          </div>
+          </div>
+
+          <div class="fighter_jet_3 elements" id="container_fighter_jet_3">
+            <img
+              class="sprite_width"
+              id="sprite_fighter_jet_3"
+              src="assets/img/game-elements/Clicker-game-fighter-jet.svg"
+            />
+            <div class="elements explosion" id="container_fighter_jet_3_explosion">
+            <img
+              class="sprite_width"
+              id="sprite_explosion"
+              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
+            />
+          </div>
+          </div>
+
+          <div class="weather_balloon elements" id="container_weather_balloon">
             <img
               class="sprite_width"
               id="sprite_weather_balloon"
               src="assets/img/game-elements/Clicker-game-weather-balloon.svg"
             />
-          </div>
-
-          <div class="explosion" id="container_explosion">
+            <div class="elements explosion" id="container_weather_balloon_explosion">
             <img
               class="sprite_width"
               id="sprite_explosion"
-              src="assets/img/game-elements/Clicker-game-explosion.svg"
+              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
             />
           </div>
+          </div>
 
-          <div class="aa_gun" id="container_aa_gun">
+          <div class="airplane elements" id="container_airplane">
+            <img
+              class="sprite_width"
+              id="sprite_airplane"
+              src="assets/img/game-elements/Clicker-game-Commercial-airplane.svg"
+            />
+            <div class="elements explosion" id="container_airplane_explosion">
+            <img
+              class="sprite_width"
+              id="sprite_explosion"
+              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
+            />
+          </div>
+          </div>
+
+          <div class="hot_air_balloon elements" id="container_hot_air_balloon">
+            <img
+              class="sprite_width"
+              id="sprite_hot_air_balloon"
+              src="assets/img/game-elements/Clicker-game-hot-air-balloon.svg"
+            />
+            <div class="elements explosion" id="container_hot_air_balloon_explosion">
+            <img
+              class="sprite_width"
+              id="sprite_explosion"
+              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
+            />
+          </div>
+          </div>
+
+          <div class="aa_gun elements" id="container_aa_gun">
             <img class="sprite_width" id="sprite_aa_gun""
             src="assets/img/game-elements/clicker-game-howitzer.svg" />
           </div>
@@ -80,30 +137,32 @@
               id="sprite_timer_bar"
               src="assets/img/game-ui/Clicker-ui-time_bar.svg"
             />
+            <div class="timer_bar_fill" id="container_timer_bar_fill"></div>
           </div>
 
-          <div class="star_gold" id="container_star_gold">
-            <img
-              class="sprite_width"
-              id="sprite_star_gold"
-              src="assets/img/game-ui/Clicker-ui-star-gold.svg"
-            />
-          </div>
+          <div class="scoreboard" id="container_scoreboard">
+            <div class="star_gold scoreboard_icons" id="container_star_gold">
+              <img
+                class="sprite_width"
+                id="sprite_star_gold"
+                src="assets/img/game-ui/Clicker-ui-star-gold.svg"
+              />
+            </div>
 
-          <div class="star_metal" id="container_star_metal">
-            <img
-              class="sprite_width"
-              id="sprite_star_metal"
-              src="assets/img/game-ui/Clicker-ui-star-metal.svg"
-            />
-          </div>
+            <div id="points_counter" class="scoreboard_counters">
+              <p>1000</p>
+            </div>
 
-          <div class="skull" id="container_skull">
-            <img
-              class="sprite_width"
-              id="sprite_skull"
-              src="assets/img/game-ui/Clicker-ui-skull.svg"
-            />
+            <div class="skull scoreboard_icons" id="container_skull">
+              <img
+                class="sprite_width"
+                id="sprite_skull"
+                src="assets/img/game-ui/Clicker-ui-skull.svg"
+              />
+            </div>
+            <div id="civil_casuailties_counter" class="scoreboard_counters">
+              <p>1000</p>
+            </div>
           </div>
         </div>
       </section>
@@ -120,5 +179,11 @@
         <!-- LEVEL COMPLETE SCREEN -->
       </section>
     </main>
+    <script src="./assets/js/start.js"></script>
+    <script src="./assets/js/game_elements.js"></script>
+    <script src="./assets/js/game_explosions.js"></script>
+    <script src="./assets/js/game_ui.js"></script>
+    <script src="./assets/js/game_over.js"></script>
+    <script src="./assets/js/level_complete.js"></script>
   </body>
 </html>

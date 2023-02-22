@@ -7,7 +7,15 @@ const containerAirplane = document.querySelector("#container_airplane");
 const containerHotAirBalloon = document.querySelector("#container_hot_air_balloon");
 const containerAaGun = document.querySelector("#container_aa_gun");
 
-window.addEventListener("load", moveInit);
+window.addEventListener("load", startGame);
+
+function startGame() {
+    // scoreInit();
+    // timerInit();
+    moveInit();
+    clickEventsInit();
+
+};
 
 function moveInit() {
   //initiate all moving objects on game start
@@ -19,10 +27,9 @@ function moveInit() {
   containerAirplane.classList.add("airplane_move");
   containerHotAirBalloon.classList.add("hot_air_balloon_move");
 
-  eventInit();
 }
 
-function eventInit() {
+function clickEventsInit() {
   containerUfo.addEventListener("mousedown", ufoClick);
   containerFighterJet.addEventListener("mousedown", fighterJetClick);
   containerFighterJet2.addEventListener("mousedown", fighterJet2Click);
@@ -43,6 +50,7 @@ function aaGunFire() {
 
 function ufoClick() {
     containerUfo.classList.add("paused");
+    containerUfo.removeEventListener("mousedown", ufoClick);
     aaGunFire();
     ufoExplosion(); // from assets/js/game_explosions.js
     
@@ -50,6 +58,7 @@ function ufoClick() {
 
 function fighterJetClick() {
     containerFighterJet.classList.add("paused");
+    containerFighterJet.removeEventListener("mousedown", fighterJetClick);
     aaGunFire();
     fighterJetExplosion(); // from assets/js/game_explosions.js
     
@@ -57,6 +66,7 @@ function fighterJetClick() {
 
 function fighterJet2Click() {
     containerFighterJet2.classList.add("paused");
+    containerFighterJet2.removeEventListener("mousedown", fighterJet2Click);
     aaGunFire();
     fighterJet2Explosion(); // from assets/js/game_explosions.js
     
@@ -64,6 +74,7 @@ function fighterJet2Click() {
 
 function fighterJet3Click() {
     containerFighterJet3.classList.add("paused");
+    containerFighterJet3.removeEventListener("mousedown", fighterJet3Click);
     aaGunFire();
     fighterJet3Explosion(); // from assets/js/game_explosions.js
     
@@ -71,6 +82,7 @@ function fighterJet3Click() {
 
 function weatherBalloonClick() {
     containerWeatherBalloon.classList.add("paused");
+    containerWeatherBalloon.removeEventListener("mousedown", weatherBalloonClick);
     aaGunFire();
     weatherBalloonExplosion(); // from assets/js/game_explosions.js
     
@@ -78,6 +90,7 @@ function weatherBalloonClick() {
 
 function airplaneClick() {
     containerAirplane.classList.add("paused");
+    containerAirplane.removeEventListener("mousedown", airplaneClick);
     aaGunFire();
     airplaneExplosion(); // from assets/js/game_explosions.js
     
@@ -85,6 +98,7 @@ function airplaneClick() {
 
 function hotAirBalloonClick() {
     containerHotAirBalloon.classList.add("paused");
+    containerHotAirBalloon.removeEventListener("mousedown", hotAirBalloonClick);
     aaGunFire();
     hotAirBalloonExplosion(); // from assets/js/game_explosions.js
     
@@ -98,6 +112,7 @@ function aaGunFireReset() {
 }
 
 function ufoClickReset() {
+    containerUfo.addEventListener("mousedown", ufoClick);
     containerUfo.classList.remove("ufo_move");
     containerUfo.classList.remove("paused");
     containerUfo.classList.remove("zoom_out");
@@ -106,6 +121,7 @@ function ufoClickReset() {
     }
 
 function fighterJetClickReset() {
+    containerFighterJet.addEventListener("mousedown", fighterJetClick);
     containerFighterJet.classList.remove("fighter_jet_move");
     containerFighterJet.classList.remove("paused");
     containerFighterJet.classList.remove("zoom_out");
@@ -114,6 +130,7 @@ function fighterJetClickReset() {
     }
 
 function fighterJet2ClickReset() {
+    containerFighterJet2.addEventListener("mousedown", fighterJet2Click);
     containerFighterJet2.classList.remove("fighter_jet_move_2");
     containerFighterJet2.classList.remove("paused");
     containerFighterJet2.classList.remove("zoom_out");
@@ -122,6 +139,7 @@ function fighterJet2ClickReset() {
     }
 
 function fighterJet3ClickReset() {
+    containerFighterJet3.addEventListener("mousedown", fighterJet3Click);
     containerFighterJet3.classList.remove("fighter_jet_move_3");
     containerFighterJet3.classList.remove("paused");
     containerFighterJet3.classList.remove("zoom_out");
@@ -130,6 +148,7 @@ function fighterJet3ClickReset() {
     }
 
 function weatherBalloonClickReset() {
+    containerWeatherBalloon.addEventListener("mousedown", weatherBalloonClick);
     containerWeatherBalloon.classList.remove("weather_balloon_move");
     containerWeatherBalloon.classList.remove("paused");
     containerWeatherBalloon.classList.remove("zoom_out");
@@ -138,6 +157,7 @@ function weatherBalloonClickReset() {
     }
 
 function airplaneClickReset() {
+    containerAirplane.addEventListener("mousedown", airplaneClick);
     containerAirplane.classList.remove("airplane_move");
     containerAirplane.classList.remove("paused");
     containerAirplane.classList.remove("zoom_out");
@@ -146,6 +166,7 @@ function airplaneClickReset() {
     }
 
 function hotAirBalloonClickReset() {
+    containerHotAirBalloon.addEventListener("mousedown", hotAirBalloonClick);
     containerHotAirBalloon.classList.remove("hot_air_balloon_move");
     containerHotAirBalloon.classList.remove("paused");
     containerHotAirBalloon.classList.remove("zoom_out");

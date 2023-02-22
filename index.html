@@ -24,6 +24,7 @@
               class="sprite_width"
               id="sprite_ufo"
               src="assets/img/game-elements/Clicker-game-alien-ship.svg"
+              draggable = "false"
             />
             <div class="elements explosion" id="container_ufo_explosion">
             <img
@@ -39,6 +40,7 @@
               class="sprite_width"
               id="sprite_fighter_jet"
               src="assets/img/game-elements/Clicker-game-fighter-jet.svg"
+              draggable = "false"
             />
             <div class="elements explosion" id="container_fighter_jet_explosion">
             <img
@@ -54,6 +56,7 @@
               class="sprite_width"
               id="sprite_fighter_jet_2"
               src="assets/img/game-elements/Clicker-game-fighter-jet.svg"
+              draggable = "false"
             />
             <div class="elements explosion" id="container_fighter_jet_2_explosion">
             <img
@@ -69,6 +72,7 @@
               class="sprite_width"
               id="sprite_fighter_jet_3"
               src="assets/img/game-elements/Clicker-game-fighter-jet.svg"
+              draggable = "false"
             />
             <div class="elements explosion" id="container_fighter_jet_3_explosion">
             <img
@@ -84,6 +88,7 @@
               class="sprite_width"
               id="sprite_weather_balloon"
               src="assets/img/game-elements/Clicker-game-weather-balloon.svg"
+              draggable = "false"
             />
             <div class="elements explosion" id="container_weather_balloon_explosion">
             <img
@@ -99,6 +104,7 @@
               class="sprite_width"
               id="sprite_airplane"
               src="assets/img/game-elements/Clicker-game-Commercial-airplane.svg"
+              draggable = "false"
             />
             <div class="elements explosion" id="container_airplane_explosion">
             <img
@@ -114,6 +120,7 @@
               class="sprite_width"
               id="sprite_hot_air_balloon"
               src="assets/img/game-elements/Clicker-game-hot-air-balloon.svg"
+              draggable = "false"
             />
             <div class="elements explosion" id="container_hot_air_balloon_explosion">
             <img
@@ -135,34 +142,30 @@
             <img
               class="sprite_width"
               id="sprite_timer_bar"
-              src="assets/img/game-ui/Clicker-ui-time_bar.svg"
+              src="assets/img/game-ui/Clicker-ui-bullets.svg"
             />
-            <div class="timer_bar_fill" id="container_timer_bar_fill"></div>
+            <div class="timer_bar_countdown" id="container_timer_bar_countdown"></div>
           </div>
 
           <div class="scoreboard" id="container_scoreboard">
-            <div class="star_gold scoreboard_icons" id="container_star_gold">
-              <img
-                class="sprite_width"
-                id="sprite_star_gold"
-                src="assets/img/game-ui/Clicker-ui-star-gold.svg"
-              />
+            <div id="score_text">
+              <p>Score: </p>
             </div>
 
-            <div id="points_counter" class="scoreboard_counters">
-              <p>1000</p>
+            <div id="score_counter" class="scoreboard_counters">
+              <p id="score">100</p>
             </div>
 
-            <div class="skull scoreboard_icons" id="container_skull">
-              <img
-                class="sprite_width"
-                id="sprite_skull"
-                src="assets/img/game-ui/Clicker-ui-skull.svg"
-              />
+            <div id="rank_text">
+              <p>Rank: </p>
             </div>
-            <div id="civil_casuailties_counter" class="scoreboard_counters">
-              <p>1000</p>
+
+            <div id="rank_counter" class="scoreboard_counters scoreboard_icons">
+              <img class="sprite_width" id="sprite_rank_gold" src="assets/img/game-ui/Clicker-ui-star-gold.svg" />
+              <img class="sprite_width" id="sprite_rank_metal" src="assets/img/game-ui/Clicker-ui-star-metal.svg" />
+              <img class="sprite_width" id="sprite_rank_wood" src="assets/img/game-ui/Clicker-ui-star-wood.svg" />
             </div>
+            
           </div>
         </div>
       </section>

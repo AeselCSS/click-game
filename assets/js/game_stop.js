@@ -1,6 +1,7 @@
 "use strict";
 
 // global variables
+// move to ui
 const timeBarContainer = document.querySelector("#container_timer_bar");
 const timerCountdown = document.querySelector("#container_timer_bar_countdown");
 const showScoreboard = document.querySelector("#show_scoreboard");
@@ -12,6 +13,7 @@ const nextLevelMessageText = document.querySelector("#level_complete_message");
 const gameOverMessageText = document.querySelector("#game_over_message");
 
 // STOP GAME
+// move to game
 function stopGame() {
   stopClickEvents();
   stopMovement();
@@ -19,7 +21,7 @@ function stopGame() {
   hideGameElements();
   hideUiElements();
 }
-
+// move to ui and rename
 // stop click events
 function stopClickEvents() {
   containerUfo.removeEventListener("mousedown", ufoClick);
@@ -31,6 +33,7 @@ function stopClickEvents() {
   containerHotAirBalloon.removeEventListener("mousedown", hotAirBalloonClick);
 }
 
+// move to ui
 // stop all moving elements
 function stopMovement() {
   containerUfo.classList.remove("ufo_move");
@@ -42,12 +45,13 @@ function stopMovement() {
   containerHotAirBalloon.classList.remove("hot_air_balloon_move");
 }
 
+// move to ui
 // stop timer
 // might be redundant since it will be hidden when hideUiElements function are called
 function stopTimer() { 
   timerCountdown.classList.remove("timer_bar_countdown"); 
 }
-
+// move to ui
 // hide game elements
 function hideGameElements() {
   containerUfo.classList.add("hidden");
@@ -61,12 +65,14 @@ function hideGameElements() {
 }
 
 // hide ui elements
+// move to ui
 function hideUiElements() {
   timeBarContainer.classList.add("hidden");
   showScoreboard.classList.add("hidden");
 }
 
 // show game over screen
+// move to game
 function showGameOverScreen() {
     stopGame();
     gameOverScreen.classList.remove("hidden");
@@ -79,6 +85,7 @@ function showNextLevelScreen() {
 }
 
 // evaluate win condition
+// move to game
 function evaluateWinLooseConditions() {
     if (score >= 100 && rank >= 1) {
         showNextLevelScreen();
@@ -91,7 +98,7 @@ function evaluateWinLooseConditions() {
         gameOverMessageRankDecrease();
     }
 }
-
+// move below to ui
 // next level message
 function nextLevelMessage() {
     nextLevelMessageText.textContent =
@@ -106,4 +113,13 @@ function gameOverMessageRankDecrease() {
 // game over message score too low
 function gameOverMessageScoreTooLow() {
     gameOverMessageText.textContent = "Bad luck Soldier! Your score is too low. Mission is unsuccesful.";
+}
+
+// add onClick events for buttons
+function addOnClickEvents() {
+  document.querySelector("#start_button").addEventListener("click", startButton);
+  document
+    .querySelector("#game_over_button_play_again")
+    .addEventListener("click", restartButton);
+  document.querySelector("#next_level_button").addEventListener("click", nextLevelButton);
 }

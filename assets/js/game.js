@@ -3,25 +3,22 @@
 window.addEventListener("load", startScreen);
 
 // START SCREEN
-
 function startScreen() {
   document.querySelector("#start_screen").classList.remove("hidden");
 }
 
 // START BUTTON
-
 function startButton() {
   document.querySelector("#start_screen").classList.add("hidden");
   startGame();
 }
 
 // START GAME
-
 function startGame() {
   scoreInit();
   timeInit();
   startMovement();
-  startClickEvents();
+  startEvents();
 }
 
 //initiate all moving elements
@@ -35,7 +32,8 @@ function startMovement() {
   containerHotAirBalloon.classList.add("hot_air_balloon_move");
 }
 
-function startClickEvents() {
+// add eventlisterners to all moving elements
+function startEvents() {
   containerUfo.addEventListener("mousedown", ufoClick);
   containerUfo.addEventListener("animationend", ufoLanding);
   containerFighterJet.addEventListener("mousedown", fighterJetClick);

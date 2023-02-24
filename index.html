@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/main.css">
     <link rel="stylesheet" href="./assets/styles/animations.css">
     <link rel="stylesheet" href="./assets/styles/ui.css">
     <title>Airspace Defence</title>
@@ -20,6 +20,7 @@
         <div id="game_elements">
 
           <div class="ufo elements" id="container_ufo">
+            <!-- <div class="elements" id="container_ufo_movement"> -->
             <img
               class="sprite_width"
               id="sprite_ufo"
@@ -27,6 +28,7 @@
               alt="ufo"
               draggable = "false"
             />
+          <!-- </div> -->
             <div class="elements hidden" id="container_ufo_explosion">
             <img
               class="sprite_width"
@@ -202,9 +204,18 @@
       <section id="start_screen" class="hidden">
         <!-- START SCREEN -->
         <h2 id="start_screen_header">Airspace Defence</h2>
-        <p id="start_screen_message"></p>
+        <div id="start_screen_message">
+          <p>Welcome Soldier!</p>
+          <p>Your mission is to destroy the enemies invading our airspace.</p>
+          <p>Shoot the enemy fighter jets and weather balloons spying on us.</p>
+          <p>DO NOT let the aliens land.</p>
+          <p>DO NOT shoot the civilian aircrafts and hot air balloons.</p>
+
+          <p>You have 60 seconds to complete your mission. </p>
+          <p>Good luck!</p>
+        </div>
         <div id="start_screen_button">
-          <button id="start_screen_button_start">Start Mission</button>
+          <button id="start_button">Start Mission</button>
         </div>
       </section>
 
@@ -230,9 +241,8 @@
 
     </main>
 
-    <script src="./assets/js/game.js"></script>
     <script src="./assets/js/game_elements.js"></script>
     <script src="./assets/js/game_ui.js"></script>
-    <script src="./assets/js/game_stop.js"></script>
+    <script src="./assets/js/game.js"></script>
   </body>
 </html>

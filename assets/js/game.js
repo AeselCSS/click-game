@@ -1,45 +1,43 @@
 "use strict";
 
-window.addEventListener("load", startScreen);
+window.addEventListener("load", showStartScreen);
 
-// START SCREEN
-function startScreen() {
-  document.querySelector("#start_screen").classList.remove("hidden");
-}
-
-// START BUTTON
-function startButton() {
-  document.querySelector("#start_screen").classList.add("hidden");
-  startGame();
-}
 
 // START GAME
 function startGame() {
-  scoreInit();
-  timeInit();
+  resetRank();
+  resetScore();
+  startScore();
+  startTime();
   startMovement();
   startEvents();
+  showGameElements();
+  showUiElements();
+  console.log("game started - rank: " + rank + " score: " + score);
 }
 
-//initiate all moving elements
-function startMovement() {
-  containerUfo.classList.add("ufo_move");
-  containerFighterJet.classList.add("fighter_jet_move");
-  containerFighterJet2.classList.add("fighter_jet_move_2");
-  containerFighterJet3.classList.add("fighter_jet_move_3");
-  containerWeatherBalloon.classList.add("weather_balloon_move");
-  containerAirplane.classList.add("airplane_move");
-  containerHotAirBalloon.classList.add("hot_air_balloon_move");
+// STOP GAME
+function stopGame() {
+  stopEvents();
+  stopMovement();
+  stopTimer();
+  hideGameElements();
+  hideUiElements();
+  console.log("game stopped - rank: " + rank + " score: " + score);
 }
 
-// add eventlisterners to all moving elements
-function startEvents() {
-  containerUfo.addEventListener("mousedown", ufoClick);
-  containerUfo.addEventListener("animationend", ufoLanding);
-  containerFighterJet.addEventListener("mousedown", fighterJetClick);
-  containerFighterJet2.addEventListener("mousedown", fighterJet2Click);
-  containerFighterJet3.addEventListener("mousedown", fighterJet3Click);
-  containerWeatherBalloon.addEventListener("mousedown", weatherBalloonClick);
-  containerAirplane.addEventListener("mousedown", airplaneClick);
-  containerHotAirBalloon.addEventListener("mousedown", hotAirBalloonClick);
+
+// EVALUATE WIN/LOOSE CONDITIONS
+function evaluateWinLooseConditions() {
+    if (score >= 100 && rank >= 1) {
+        showNextLevelScreen();
+        nextLevelMessage();
+    } else if (score < 100 && rank >= 1) {
+        showGameOverScreen();
+        gameOverMessageScoreTooLow();
+    } else {
+        showGameOverScreen();
+        gameOverMessageRankDecrease();
+    }
 }
+

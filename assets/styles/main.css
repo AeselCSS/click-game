@@ -133,12 +133,8 @@ img {
     left: -25%;
 }
 
-/* --- START MENU STYLING --- */
-#start_menu {
-    /* display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2fr 1fr; */
-    position: absolute;
+/* --- START SCREEN STYLING --- */
+#start_screen {
     height: 40vw;
     width: 50vw;
     z-index: 200;
@@ -152,34 +148,32 @@ img {
     position: absolute;
 }
 
-#start_menu_header{
+#start_screen_header{
     position: relative;
     font-family: monospace;
     font-size: 3.5vw;
     text-transform: uppercase;
     text-align: center;
     color:rgba(0, 0, 0, 1);
-    /* height: 20%; */
-    
 }
 
-#start_menu_message {
+#start_screen_message p {
     position: relative;
     font-family: monospace;
-    font-size: 2vw;
+    font-size: 1.85vw;
     text-align: left;
     padding: 0 3em;
     margin: 0;
     color:rgba(0, 0, 0, 1);
 }
 
-#start_menu_button {
+#start_screen_button {
     position: relative;
     width: 100%;
     margin: 1vw 0 0 0;
 }
 
-#start_menu_button button {
+#start_screen_button button {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -197,13 +191,8 @@ img {
     
 }
 
-
 /* --- GAME OVER STYLING --- */
 #game_over {
-    /* display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2fr 1fr; */
-    position: absolute;
     height: 40vw;
     width: 50vw;
     z-index: 200;
@@ -265,10 +254,6 @@ img {
 
 /* --- LEVEL COMPLETE STYLING --- */
 #level_complete {
-    /* display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2fr 1fr; */
-    position: absolute;
     height: 40vw;
     width: 50vw;
     z-index: 200;

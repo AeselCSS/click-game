@@ -9,9 +9,15 @@ Basic 2d game with various moving objects that either has to be clicked on or le
 
 ## Credits for free images:
 - Cartoon bomb explosion set clouds boom effect by upklyak on [Freepik](https://www.freepik.com/free-vector/cartoon-bomb-explosion-set-clouds-boom-effect_20731547.htm)
-- Vfx gun effect space blasters ray bomb explosion by upklyak on [Freepik](https://www.freepik.com/free-vector/vfx-gun-effect-space-blasters-ray-bomb-explosion_27776326.htm)
 - Stars game score elements by upklyak on [Freepik](https://www.freepik.com/free-vector/stars-game-score-elements-ui-ux-gui-rate-assets-gold-metal-wooden-ice-crystal-lava-texture-app-user-interface-display-winner-achievement-bonus-cartoon-vector-illustration-icons_25196696.htm)
 - Ammunition-bullets by macrovector on [Freepik](https://www.freepik.com/free-vector/ammunition-bullets_10602942.htm)
-- Flat stars collection by Freepik on [Freepik](https://www.freepik.com/free-vector/flat-stars-collection_1608519.htm)
-- Skull icons created by Freepik on [Flaticon](https://www.flaticon.com/free-icon/coin_461424)
 - Crosshair icons created by Job Moon on [Flaticon](https://www.flaticon.com/free-icon/crosshairs_8301052)
+
+## Credits for licenced images:
+- Background created by ValeriHadeev on [Depositphotos](https://da.depositphotos.com/274676334/stock-illustration-beautiful-countryside-summer-landscape-valley.html)
+- Flying Saucer created by benchyb on [Depositphotos](https://da.depositphotos.com/67911067/stock-illustration-flying-saucer-spaceship-and-ufo.html)
+- Airplane created by frizio on [Depositphotos](https://da.depositphotos.com/151308206/stock-illustration-airline-passenger-line.html)
+- Hot air balloon created by EgudinKa on [Depositphotos](https://da.depositphotos.com/164149376/stock-illustration-hot-air-balloon-red-white.html)
+- Fighter jet created by suricoma on [Depositphotos](https://da.depositphotos.com/46370961/stock-illustration-fighter-jet.html)
+- Weather balloon created by Andramin on [Depositphotos](https://da.depositphotos.com/239591722/stock-illustration-weather-balloon-radiosonde-blue-sky.html)
+- Howitzer created by robuart on [Depositphotos](https://da.depositphotos.com/138315840/stock-illustration-howitzer-vector-illustration-in-flat.html)

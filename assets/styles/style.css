@@ -16,12 +16,16 @@ img {
   width: 100%;
 }
 
+.hidden {
+    display: none;
+}
+
 #screen {
     display: grid;
     grid-template: 100% / 100%;
     aspect-ratio: 16/9;
 }
-
+/* --- GAME STYLING --- */
 #game {
     display: grid;
     grid-template: 100% / 100%;
@@ -129,3 +133,196 @@ img {
     left: -25%;
 }
 
+/* --- START MENU STYLING --- */
+#start_menu {
+    /* display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr; */
+    position: absolute;
+    height: 40vw;
+    width: 50vw;
+    z-index: 200;
+    top: 15%;
+    left: 25%;
+    background: rgba(255, 255, 255, 0.30);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+}
+
+#start_menu_header{
+    position: relative;
+    font-family: monospace;
+    font-size: 3.5vw;
+    text-transform: uppercase;
+    text-align: center;
+    color:rgba(0, 0, 0, 1);
+    /* height: 20%; */
+    
+}
+
+#start_menu_message {
+    position: relative;
+    font-family: monospace;
+    font-size: 2vw;
+    text-align: left;
+    padding: 0 3em;
+    margin: 0;
+    color:rgba(0, 0, 0, 1);
+}
+
+#start_menu_button {
+    position: relative;
+    width: 100%;
+    margin: 1vw 0 0 0;
+}
+
+#start_menu_button button {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    font-family: monospace;
+    font-size: 1.5vw;
+    font-weight: 600;
+    padding: 1vw;
+    margin: 0.5vw 0 0 12vw;
+    min-width: 50%;
+    cursor: pointer;
+    
+}
+
+
+/* --- GAME OVER STYLING --- */
+#game_over {
+    /* display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr; */
+    position: absolute;
+    height: 40vw;
+    width: 50vw;
+    z-index: 200;
+    top: 15%;
+    left: 25%;
+    background: rgba(255, 255, 255, 0.30);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+}
+
+#game_over_header{
+    position: relative;
+    font-family: monospace;
+    font-size: 3.5vw;
+    text-transform: uppercase;
+    text-align: center;
+    color:rgba(0, 0, 0, 1);
+    /* height: 20%; */
+    
+}
+
+#game_over_message {
+    position: relative;
+    font-family: monospace;
+    font-size: 2vw;
+    text-align: left;
+    padding: 0 3em;
+    margin: 0;
+    color:rgba(0, 0, 0, 1);
+}
+
+#game_over_buttons {
+    position: relative;
+    width: 100%;
+    margin: 1vw 0 0 0;
+}
+
+#game_over_buttons button {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    font-family: monospace;
+    font-size: 1.5vw;
+    font-weight: 600;
+    padding: 1vw;
+    margin: 0.5vw 0 0 12vw;
+    min-width: 50%;
+    cursor: pointer;
+    
+}
+
+
+/* --- LEVEL COMPLETE STYLING --- */
+#level_complete {
+    /* display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr; */
+    position: absolute;
+    height: 40vw;
+    width: 50vw;
+    z-index: 200;
+    top: 15%;
+    left: 25%;
+    background: rgba(255, 255, 255, 0.30);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+}
+
+#level_complete_header{
+    position: relative;
+    font-family: monospace;
+    font-size: 3.5vw;
+    text-transform: uppercase;
+    text-align: center;
+    color:rgba(0, 0, 0, 1);
+    /* height: 20%; */
+    
+}
+
+#level_complete_message {
+    position: relative;
+    font-family: monospace;
+    font-size: 2vw;
+    text-align: left;
+    padding: 0 3em;
+    margin: 0;
+    color:rgba(0, 0, 0, 1);
+}
+
+#level_complete_buttons {
+    position: relative;
+    width: 100%;
+    margin: 1vw 0 0 0;
+}
+
+#level_complete_buttons button {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    font-family: monospace;
+    font-size: 1.5vw;
+    font-weight: 600;
+    padding: 1vw;
+    margin: 0.5vw 0 0 12vw;
+    min-width: 50%;
+    cursor: pointer;
+    
+}

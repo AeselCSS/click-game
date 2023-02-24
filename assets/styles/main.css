@@ -1,4 +1,21 @@
 /* --- GENERAL STYLING --- */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+
+/* ===== GLOBAL VARIABLES ===== */
+:root {
+    --font-family: 'JetBrains Mono', monospace;
+    --font-size-screen-header: 2.8vw;
+    --font-size-screen-message: 1.7vw;
+    --font-size-screen-button: 1.6vw;
+    --font-weight: 300;
+    --font-color: #fff;
+    --font-color-dark: #000;
+    --text-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.5);
+    --background-color: rgba(255, 255, 255, 0.30);
+    --border: border: 1px solid rgba(255, 255, 255, 0.3);
+    --box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
 body {
     width: 100%;
     height: 100%;
@@ -140,31 +157,31 @@ img {
     z-index: 200;
     top: 15%;
     left: 25%;
-    background: rgba(255, 255, 255, 0.30);
+    background: var(--background-color);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     backdrop-filter: blur(5.6px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: var(--border);
     position: absolute;
 }
 
 #start_screen_header{
     position: relative;
-    font-family: monospace;
-    font-size: 3.5vw;
+    font-family: var(--font-family);
+    font-size: var(--font-size-screen-header);
     text-transform: uppercase;
     text-align: center;
-    color:rgba(0, 0, 0, 1);
+    color: var(--font-color-dark);
 }
 
 #start_screen_message p {
     position: relative;
-    font-family: monospace;
-    font-size: 1.85vw;
+    font-family: var(--font-family);
+    font-size: var(--font-size-screen-message);
     text-align: left;
     padding: 0 3em;
     margin: 0;
-    color:rgba(0, 0, 0, 1);
+    color: var(--font-color-dark);
 }
 
 #start_screen_button {
@@ -176,13 +193,13 @@ img {
 #start_screen_button button {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     backdrop-filter: blur(5.6px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: rgba(255, 255, 255);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-    font-family: monospace;
-    font-size: 1.5vw;
+    border: var(--border);
+    color: var(--font-color);
+    text-shadow: var(text-shadow);
+    font-family: var(--font-family);
+    font-size: var(--font-size-screen-button);
     font-weight: 600;
     padding: 1vw;
     margin: 0.5vw 0 0 12vw;
@@ -198,33 +215,33 @@ img {
     z-index: 200;
     top: 15%;
     left: 25%;
-    background: rgba(255, 255, 255, 0.30);
+    background: var(--background-color);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     backdrop-filter: blur(5.6px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: var(--border);
     position: absolute;
 }
 
 #game_over_header{
     position: relative;
-    font-family: monospace;
-    font-size: 3.5vw;
+    font-family: var(--font-family);
+    font-size: var(--font-size-screen-header);
     text-transform: uppercase;
     text-align: center;
-    color:rgba(0, 0, 0, 1);
+    color:var(--font-color-dark);
     /* height: 20%; */
     
 }
 
 #game_over_message {
     position: relative;
-    font-family: monospace;
-    font-size: 2vw;
+    font-family: var(--font-family);
+    font-size: var(--font-size-screen-message);
     text-align: left;
     padding: 0 3em;
     margin: 0;
-    color:rgba(0, 0, 0, 1);
+    color:var(--font-color-dark);
 }
 
 #game_over_buttons {
@@ -236,13 +253,13 @@ img {
 #game_over_buttons button {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     backdrop-filter: blur(5.6px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: rgba(255, 255, 255);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-    font-family: monospace;
-    font-size: 1.5vw;
+    border: var(--border);
+    color: var(--font-color);
+    text-shadow: var(text-shadow);
+    font-family: var(--font-family);
+    font-size: var(--font-size-screen-button);
     font-weight: 600;
     padding: 1vw;
     margin: 0.5vw 0 0 12vw;
@@ -259,33 +276,33 @@ img {
     z-index: 200;
     top: 15%;
     left: 25%;
-    background: rgba(255, 255, 255, 0.30);
+    background: var(--background-color);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     backdrop-filter: blur(5.6px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: var(--border);
     position: absolute;
 }
 
 #level_complete_header{
     position: relative;
-    font-family: monospace;
-    font-size: 3.5vw;
+    font-family: var(--font-family);
+    font-size: var(--font-size-screen-header);
     text-transform: uppercase;
     text-align: center;
-    color:rgba(0, 0, 0, 1);
+    color:var(--font-color-dark);
     /* height: 20%; */
     
 }
 
 #level_complete_message {
     position: relative;
-    font-family: monospace;
-    font-size: 2vw;
+    font-family: var(--font-family);
+    font-size: var(--font-size-screen-message);
     text-align: left;
     padding: 0 3em;
     margin: 0;
-    color:rgba(0, 0, 0, 1);
+    color: var(--font-color-dark);
 }
 
 #level_complete_buttons {
@@ -297,13 +314,13 @@ img {
 #level_complete_buttons button {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     backdrop-filter: blur(5.6px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: rgba(255, 255, 255);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-    font-family: monospace;
-    font-size: 1.5vw;
+    border: var(--border);
+    color: var(--font-color);
+    text-shadow: var(--text-shadow);
+    font-family: var(--font-family);
+    font-size: var(--font-size-screen-button);
     font-weight: 600;
     padding: 1vw;
     margin: 0.5vw 0 0 12vw;

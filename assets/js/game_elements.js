@@ -65,7 +65,11 @@ function stopMovement() {
 // ====== GAME ELEMENT EVENTS ======
 function startEvents() {
   containerUfo.addEventListener("mousedown", ufoClick);
-  containerUfo.addEventListener("animationend", ufoLanding);
+  containerUfo.addEventListener("animationend", (event) => {
+    if (event.animationName === "ufo") {
+      ufoLanding();
+    }
+  });
   containerFighterJet.addEventListener("mousedown", fighterJetClick);
   containerFighterJet2.addEventListener("mousedown", fighterJet2Click);
   containerFighterJet3.addEventListener("mousedown", fighterJet3Click);
@@ -87,6 +91,7 @@ function stopEvents() {
 
 // ===== CLICK EVENTS =====
 function ufoClick() {
+  console.log("Clicked on a UFO!");
     containerUfo.classList.add("paused");
     containerUfo.removeEventListener("mousedown", ufoClick);
     aaGunFire();
@@ -98,7 +103,7 @@ function fighterJetClick() {
     containerFighterJet.removeEventListener("mousedown", fighterJetClick);
     aaGunFire();
     fighterJetExplosion();
-    updateScore(5);
+    updateScore(3);
 }
 
 function fighterJet2Click() {
@@ -106,7 +111,7 @@ function fighterJet2Click() {
     containerFighterJet2.removeEventListener("mousedown", fighterJet2Click);
     aaGunFire();
     fighterJet2Explosion();
-    updateScore(5);
+    updateScore(3);
 }
 
 function fighterJet3Click() {
@@ -114,7 +119,7 @@ function fighterJet3Click() {
     containerFighterJet3.removeEventListener("mousedown", fighterJet3Click);
     aaGunFire();
     fighterJet3Explosion();
-    updateScore(5);
+    updateScore(3);
 }
 
 function weatherBalloonClick() {
@@ -122,7 +127,7 @@ function weatherBalloonClick() {
     containerWeatherBalloon.removeEventListener("mousedown", weatherBalloonClick);
     aaGunFire();
     weatherBalloonExplosion();
-    updateScore(30);
+    updateScore(5);
 }
 
 function airplaneClick() {
@@ -143,6 +148,7 @@ function hotAirBalloonClick() {
 
 // ====== EXPLOSION ANIMATION AFTER CLICK EVENTS ======
 function ufoExplosion() {
+  console.log("UFO exploded!");
   containerUfoExplosion.classList.remove("hidden");
   containerUfoExplosion.classList.add("explosion");
   containerUfoExplosion.addEventListener("animationend", ufoZoomOut);
@@ -187,6 +193,7 @@ function hotAirBalloonExplosion() {
 
 // ====== ZOOM OUT ANIMATION AFTER EXPLOSIONS ======
 function ufoZoomOut() {
+  console.log("UFO zoomed out!");
   containerUfo.classList.add("zoom_out");
 }
 
@@ -221,7 +228,8 @@ function aaGunFire() {
 }
 
 function ufoLanding() {
-    decreaseRank(0); // SET TO 3
+  console.log("UFO landed!");
+  decreaseRank(3); // SET TO 3
 }
 //===== RESETTIN ELEMENTS AFTER CLICK EVENTS ======
 function aaGunFireReset() {
@@ -230,7 +238,7 @@ function aaGunFireReset() {
 }
 
 function ufoClickReset() {
-    containerUfo.addEventListener("mousedown", ufoClick);
+  containerUfo.addEventListener("mousedown", ufoClick);
   containerUfo.classList.remove("ufo_move");
   containerUfo.classList.remove("paused");
   containerUfo.classList.remove("zoom_out");

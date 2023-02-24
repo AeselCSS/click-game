@@ -1,6 +1,4 @@
-/* --- ANIMATIONS --- */
-/* Game elements */
-/* Moving elements */
+/* ===== GAME ELEMENT ANIMATIONS ===== */
 .ufo_move {
   animation-name: ufo;
   animation-duration: 6s;
@@ -129,8 +127,6 @@
     }
 }
 
-/* non-moving elements */
-
 .aa_gun_fire {
     animation-name: aa_gun;
     animation-duration: 0.5s;
@@ -148,7 +144,7 @@
     }
 }
 
-/* other */
+/* ===== EXPLOSION & ZOOM_OUT ANIMATIONS ===== */
 .explosion {
   animation-name: explosion;
   animation-duration: 0.8s;
@@ -164,46 +160,8 @@
   50% {
     transform: scale(1);
   }
-    100% {
-        transform: scale(0);
-    }
-}
-
-.paused {
-  animation-play-state: paused;
-}
-
-.glow {
-  animation-name: glow;
-  animation-duration: 2s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: infinite;
-}
-
-@keyframes glow {
-  0% {
-    filter: drop-shadow(1px 1px 0px yellow);
-  }
-
   100% {
-    filter: drop-shadow(4px 4px 10px yellow);
-  }
-}
-
-.glow_red {
-  animation-name: glow;
-  animation-duration: 2s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: infinite;
-}
-
-@keyframes glow {
-  0% {
-    filter: drop-shadow(1px 1px 0px red);
-  }
-
-  100% {
-    filter: drop-shadow(4px 4px 10px red);
+    transform: scale(0);
   }
 }
 
@@ -224,4 +182,64 @@
     transform: scale(0);
   }
 }
+
+.paused {
+  animation-play-state: paused;
+}
+
+/* ===== UI ANIMATIONS ===== */
+
+.timer_bar_countdown {
+  animation-name: timer_bar_countdown;
+  animation-duration: 60s;
+  animation-timing-function: steps(60);
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+  transform-origin: right;
+  animation-fill-mode: forwards;
+}
+
+@keyframes timer_bar_countdown {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0, 1);
+  }
+}
+
+.glow {
+  animation-name: glow;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0px 0px 0px rgb(0, 255, 0));
+  }
+
+  100% {
+    filter: drop-shadow(4px 4px 10px rgb(0, 255, 0));
+  }
+}
+
+.glow_red {
+  animation-name: glow_red;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes glow_red {
+  0% {
+    filter: drop-shadow(0px 0px 0px red);
+  }
+
+  100% {
+    filter: drop-shadow(4px 4px 10px red);
+  }
+}
+
 

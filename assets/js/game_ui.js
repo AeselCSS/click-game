@@ -3,6 +3,7 @@
 const timeCountdown = document.querySelector("#container_timer_bar_countdown");
 const timeBarContainer = document.querySelector("#container_timer_bar");
 const showScoreboard = document.querySelector("#show_scoreboard");
+const scoreboard = document.querySelector("#container_scoreboard");
 const scoreCounter = document.querySelector("#score_counter");
 
 const startScreen = document.querySelector("#start_screen");
@@ -42,6 +43,7 @@ function startScore() {
 
 function updateScore(points) {
     score += points;
+    scoreboardGlow();
   if (score < targetScore) {
       console.log(score);
       scoreCounter.textContent = `${score}/${targetScore}`;
@@ -55,12 +57,29 @@ function resetScore() {
     score = 0;
 }
 
+function scoreboardGlow() {
+  scoreboard.classList.add("glow");
+  setTimeout(() => {
+    scoreboard.classList.remove("glow");
+  }
+  , 1000);
+}
+
+function scoreboardGlowRed() {
+  scoreboard.classList.add("glow_red");
+  setTimeout(() => {
+    scoreboard.classList.remove("glow_red");
+  }
+  , 1000);
+}
+
 // ===== RANK =====
 
 function decreaseRank(decreaseValue) {
   rank -= decreaseValue;
   console.log("rank decreased");
   console.log(rank);
+  scoreboardGlowRed();
   updateRank();
 }
 
@@ -123,7 +142,6 @@ function showStartScreen() {
   startScreenBtn.addEventListener("click", startButton);
   hideGameElements();
   hideUiElements();
-//   startGameMessage();
 }
 
 // ===== GAME OVER SCREEN =====
@@ -166,21 +184,7 @@ function mainMenuButton() {
     levelCompleteScreen.classList.add("hidden");
     startScreen.classList.remove("hidden");
     showStartScreen();
-    // startGameMessage();
 }
-
-// // ===== START GAME MESSAGE =====
-// function startGameMessage() {
-//   startScreenMessageText.textContent =
-//     `Welcome Soldier!
-//     Your mission is to destroy the enemies invading our airspace.
-//     Shoot the enemy fighter jets and weather balloons spying on us.
-//     DO NOT let the aliens land. 
-//     DO NOT shoot the civilian aircrafts and hot air balloons.
-
-//     You have 60 seconds to complete your mission. 
-//     Good luck!`;
-// }
 
 // ===== NEXT LEVEL MESSAGE =====
 function nextLevelMessage() {

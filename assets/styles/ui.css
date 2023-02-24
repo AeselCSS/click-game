@@ -1,6 +1,6 @@
-/*--- Game UI ---*/
+/* ===== GAME UI ===== */
 
-/* Timer bar, fill and animation */
+/* ===== TIMER BAR & COUNTDOWN STYLES*/
 #container_timer_bar {
   bottom: 1.5%;
   left: 37%;
@@ -27,26 +27,7 @@
   background-color: rgb(102, 102, 102);
 }
 
-.timer_bar_countdown {
-  animation-name: timer_bar_countdown;
-  animation-duration: 60s;
-  animation-timing-function: steps(60);
-  animation-iteration-count: 1;
-  animation-direction: reverse;
-  transform-origin: right;
-  animation-fill-mode: forwards;
-}
-
-@keyframes timer_bar_countdown {
-  0% {
-    transform: scale(1, 1);
-  }
-  100% {
-    transform: scale(0, 1);
-  }
-}
-
-/* Scoreboard styles and animations*/
+/* SCOREBOARD STYLES*/
 
 #container_scoreboard {
   display: grid;
@@ -63,18 +44,18 @@
   width: 25%;
   position: absolute;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.30);
+  background: var(--background-color);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   backdrop-filter: blur(5.6px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: var(--border);
 }
 
 .scoreboard {
-  font-family: monospace;
+  font-family: var(--font-family);
   font-size: 2.8vw;
-  color: rgb(255, 255, 255);
-  text-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.5);
+  color: var(--font-color);
+  text-shadow: var(--text-shadow);
   z-index: 100;
   padding: 1vw 0 0 0;
   margin: 0;

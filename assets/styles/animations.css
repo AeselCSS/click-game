@@ -64,11 +64,9 @@
     0% {
         transform: rotate(10deg) translate(0%, 100%);
     }
-
     50% {
         transform: translate(800%, 300%);
     }
-
     100% {
         transform: rotate(-35deg) translate(1300%, 1500%);
     }
@@ -84,8 +82,7 @@
 
 @keyframes weather_balloon {
     0% {
-        transform: translate(2300%, 100%);
-        
+        transform: translate(2300%, 100%);   
     }
     100% {
         transform: translate(500%, -450%);
@@ -177,7 +174,6 @@
   0% {
     transform: scale(1);
   }
-
   100% {
     transform: scale(0);
   }
@@ -219,7 +215,6 @@
   0% {
     filter: drop-shadow(0px 0px 0px rgb(0, 255, 0));
   }
-
   100% {
     filter: drop-shadow(4px 4px 10px rgb(0, 255, 0));
   }
@@ -236,7 +231,6 @@
   0% {
     filter: drop-shadow(0px 0px 0px red);
   }
-
   100% {
     filter: drop-shadow(4px 4px 10px red);
   }

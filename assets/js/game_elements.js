@@ -143,10 +143,16 @@ function hotAirBalloonClick() {
     containerHotAirBalloon.removeEventListener("mousedown", hotAirBalloonClick);
     aaGunFire();
     hotAirBalloonExplosion();
+    explode();
     decreaseRank(1);
 }
 
 // ====== EXPLOSION ANIMATION AFTER CLICK EVENTS ======
+function explode() {
+  let explosion = this;
+  console.log(explosion);
+}
+
 function ufoExplosion() {
   console.log("UFO exploded!");
   containerUfoExplosion.classList.remove("hidden");

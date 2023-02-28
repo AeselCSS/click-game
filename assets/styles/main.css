@@ -1,18 +1,18 @@
 /* ===== IMPORTS ===== */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
 
-/* ===== GLOBAL VARIABLES ===== */
+/* ===== VARIABLES ===== */
 :root {
     --font-family: 'JetBrains Mono', monospace;
-    --font-size-screen-header: 2.8vw;
-    --font-size-screen-message: 1.7vw;
-    --font-size-screen-button: 1.6vw;
+    --font-size-headers: 2.8vw;
+    --font-size-messages: 1.7vw;
+    --font-size-buttons: 1.6vw;
     --font-weight: 300;
     --font-color: #fff;
     --font-color-dark: #000;
     --text-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.5);
     --background-color: rgba(255, 255, 255, 0.30);
-    --border: border: 1px solid rgba(255, 255, 255, 0.3);
+    --border: 1px solid rgba(255, 255, 255, 0.3);
     --box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -49,108 +49,15 @@ img {
     display: grid;
     grid-template: 100% / 100%;
     position: relative;
-    cursor: url(../img/game-ui/Clicker-ui-crosshair.svg), auto;
 }
 
  #game_background {
-    background-image: url(../img/background/Clicker-game-bg.svg);
+    background-image: url(../img/background/game_bg.svg);
     background-size: cover;
     z-index: 50;
 } 
 
-/* --- Game Elements --- */
 
-.elements {
-    position: absolute;
-    z-index: 100;
-    margin: 0;
-    padding: 0;
-    top: 50%;
-    left: -15%;
-}
-
-#container_ufo {
-    width: 7.5%;
-    top: -15%;
-    left: 20%;
-}
-
-#container_weather_balloon {
-    width: 5%;
-}
-
-#container_fighter_jet {
-    width: 8%;
-    rotate: -10deg;
-}
-
-#container_fighter_jet_2 {
-    width: 8%;
-    top: 20%;
-    left: 100%;
-}
-
-#container_fighter_jet_3 {
-    width: 8%;
-    rotate: -10deg;
-}
-
-#container_airplane {
-    width: 12%;
-}
-
-#container_hot_air_balloon {
-    width: 5%;
-}
-
-#container_aa_gun {
-    width: 15%;
-    top: 80%;
-    left: 10%;
-}
-
-/* --- resizing and repositioning of each explosions  --- */
-#container_ufo_explosion {
-    width: 140%;
-    top: -10%;
-    left: -20%;
-}
-
-#container_fighter_jet_explosion {
-    width: 100%;
-    top: -35%;
-    left: 0%;
-}
-
-#container_fighter_jet_2_explosion {
-    width: 100%;
-    top: -35%;
-    left: 0%;
-}
-
-#container_fighter_jet_3_explosion {
-    width: 100%;
-    top: -35%;
-    left: 0%;
-}
-
-#container_weather_balloon_explosion {
-    width: 150%;
-    top: 0%;
-    left: -23%;
-}
-
-#container_airplane_explosion {
-    width: 80%;
-    top: -20%;
-    left: 20%;
-}
-
-#container_hot_air_balloon_explosion {
-    width: 150%;
-    top: 40%;
-    left: -25%;
-}
 
 /* --- START SCREEN STYLING --- */
 #start_screen {
@@ -170,7 +77,7 @@ img {
 #start_screen_header{
     position: relative;
     font-family: var(--font-family);
-    font-size: var(--font-size-screen-header);
+    font-size: var(--font-size-headers);
     text-transform: uppercase;
     text-align: center;
     color: var(--font-color-dark);
@@ -179,7 +86,7 @@ img {
 #start_screen_message p {
     position: relative;
     font-family: var(--font-family);
-    font-size: var(--font-size-screen-message);
+    font-size: var(--font-size-messages);
     text-align: left;
     padding: 0 3em;
     margin: 0;
@@ -199,9 +106,9 @@ img {
     backdrop-filter: blur(5.6px);
     border: var(--border);
     color: var(--font-color);
-    text-shadow: var(text-shadow);
+    text-shadow: var(--text-shadow);
     font-family: var(--font-family);
-    font-size: var(--font-size-screen-button);
+    font-size: var(--font-size-buttons);
     font-weight: 600;
     padding: 1vw;
     margin: 0.5vw 0 0 12vw;
@@ -228,7 +135,7 @@ img {
 #game_over_header{
     position: relative;
     font-family: var(--font-family);
-    font-size: var(--font-size-screen-header);
+    font-size: var(--font-size-headers);
     text-transform: uppercase;
     text-align: center;
     color:var(--font-color-dark);
@@ -239,7 +146,7 @@ img {
 #game_over_message {
     position: relative;
     font-family: var(--font-family);
-    font-size: var(--font-size-screen-message);
+    font-size: var(--font-size-messages);
     text-align: left;
     padding: 0 3em;
     margin: 0;
@@ -261,7 +168,7 @@ img {
     color: var(--font-color);
     text-shadow: var(text-shadow);
     font-family: var(--font-family);
-    font-size: var(--font-size-screen-button);
+    font-size: var(--font-size-buttons);
     font-weight: 600;
     padding: 1vw;
     margin: 0.5vw 0 0 12vw;
@@ -289,7 +196,7 @@ img {
 #level_complete_header{
     position: relative;
     font-family: var(--font-family);
-    font-size: var(--font-size-screen-header);
+    font-size: var(--font-size-headers);
     text-transform: uppercase;
     text-align: center;
     color:var(--font-color-dark);
@@ -300,7 +207,7 @@ img {
 #level_complete_message {
     position: relative;
     font-family: var(--font-family);
-    font-size: var(--font-size-screen-message);
+    font-size: var(--font-size-messages);
     text-align: left;
     padding: 0 3em;
     margin: 0;
@@ -322,7 +229,7 @@ img {
     color: var(--font-color);
     text-shadow: var(--text-shadow);
     font-family: var(--font-family);
-    font-size: var(--font-size-screen-button);
+    font-size: var(--font-size-buttons);
     font-weight: 600;
     padding: 1vw;
     margin: 0.5vw 0 0 12vw;

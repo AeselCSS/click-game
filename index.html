@@ -1,248 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/styles/main.css">
-    <link rel="stylesheet" href="./assets/styles/animations.css">
-    <link rel="stylesheet" href="./assets/styles/ui.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/main.css" />
+    <link rel="stylesheet" href="./assets/styles/game_elements.css" />
+    <!-- <link rel="stylesheet" href="./assets/styles/animations.css" /> -->
+    <link rel="stylesheet" href="./assets/styles/game_ui.css" />
+    <link rel="icon" href="#" type="image/x-icon" />
     <title>Airspace Defence</title>
   </head>
   <body>
     <main id="screen">
       <section id="game">
         <!-- GAME SCREEN -->
-        <div id="game_background">
-          <!-- game background -->
-        </div>
+        <div id="game_background"></div>
 
         <div id="game_elements">
-
-          <div class="ufo elements" id="container_ufo">
-            <!-- <div class="elements" id="container_ufo_movement"> -->
+          <div class="element_container" id="ctr_ufo">
             <img
-              class="sprite_width"
-              id="sprite_ufo"
-              src="assets/img/game-elements/Clicker-game-alien-ship.svg"
+              class="sprite_width sprite_element"
+              src="assets/img/game-elements/enemy_ufo.svg"
               alt="ufo"
-              draggable = "false"
+              draggable="false"
             />
-          <!-- </div> -->
-            <div class="elements hidden" id="container_ufo_explosion">
             <img
-              class="sprite_width"
-              id="sprite_explosion_ufo"
-              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
-              alt="ufo_explosion"
+              class="sprite_width sprite_explosion hidden"
+              src="assets/img/game-elements/explosion.svg"
+              alt="explosion"
             />
-          </div>
           </div>
 
-          <div class="fighter_jet elements" id="container_fighter_jet">
+          <div class="element_container" id="ctr_jet">
             <img
-              class="sprite_width"
-              id="sprite_fighter_jet"
-              src="assets/img/game-elements/Clicker-game-fighter-jet.svg"
-              alt="fighter_jet"
-              draggable = "false"
+              class="sprite_width sprite_element"
+              src="assets/img/game-elements/enemy_jet.svg"
+              alt="jet"
+              draggable="false"
             />
-            <div class="elements hidden" id="container_fighter_jet_explosion">
             <img
-              class="sprite_width"
-              id="sprite_explosion_fighter_jet"
-              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
-              alt="fighter_jet_explosion"
+              class="sprite_width sprite_explosion hidden"
+              src="assets/img/game-elements/explosion.svg"
+              alt="explosion"
             />
-          </div>
           </div>
 
-          <div class="fighter_jet_2 elements" id="container_fighter_jet_2">
+          <div class="element_container" id="ctr_jet2">
             <img
-              class="sprite_width"
-              id="sprite_fighter_jet_2"
-              src="assets/img/game-elements/Clicker-game-fighter-jet.svg"
-              draggable = "false"
-              alt="fighter_jet_2"
+              class="sprite_width sprite_element"
+              src="assets/img/game-elements/enemy_jet.svg"
+              alt="jet"
+              draggable="false"
             />
-            <div class="elements hidden" id="container_fighter_jet_2_explosion">
             <img
-              class="sprite_width"
-              id="sprite_explosion_fighter_jet_2"
-              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
-              alt="fighter_jet_2_explosion"
+              class="sprite_width sprite_explosion hidden"
+              src="assets/img/game-elements/explosion.svg"
+              alt="explosion"
             />
-          </div>
           </div>
 
-          <div class="fighter_jet_3 elements" id="container_fighter_jet_3">
+          <div class="element_container" id="ctr_jet3">
             <img
-              class="sprite_width"
-              id="sprite_fighter_jet_3"
-              src="assets/img/game-elements/Clicker-game-fighter-jet.svg"
-              draggable = "false"
-              alt="fighter_jet_3"
+              class="sprite_width sprite_element"
+              src="assets/img/game-elements/enemy_jet.svg"
+              alt="jet"
+              draggable="false"
             />
-            <div class="elements hidden" id="container_fighter_jet_3_explosion">
             <img
-              class="sprite_width"
-              id="sprite_explosion_fighter_jet_3"
-              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
-              alt="fighter_jet_3_explosion"
+              class="sprite_width sprite_explosion hidden"
+              src="assets/img/game-elements/explosion.svg"
+              alt="explosion"
             />
-          </div>
           </div>
 
-          <div class="weather_balloon elements" id="container_weather_balloon">
+          <div class="element_container" id="ctr_spy_balloon">
             <img
-              class="sprite_width"
-              id="sprite_weather_balloon"
-              src="assets/img/game-elements/Clicker-game-weather-balloon.svg"
-              draggable = "false"
-              alt="weather_balloon"
+              class="sprite_width sprite_element"
+              src="assets/img/game-elements/enemy_spy_balloon.svg"
+              alt="spy_balloon"
+              draggable="false"
             />
-            <div class="elements hidden" id="container_weather_balloon_explosion">
             <img
-              class="sprite_width"
-              id="sprite_explosion_weather_balloon"
-              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
-              alt="weather_balloon_explosion"
+              class="sprite_width sprite_explosion hidden"
+              src="assets/img/game-elements/explosion.svg"
+              alt="explosion"
             />
-          </div>
           </div>
 
-          <div class="airplane elements" id="container_airplane">
+          <div class="element_container" id="ctr_airplane">
             <img
-              class="sprite_width"
-              id="sprite_airplane"
-              src="assets/img/game-elements/Clicker-game-Commercial-airplane.svg"
-              draggable = "false"
+              class="sprite_width sprite_element"
+              src="assets/img/game-elements/civil_airplane.svg"
               alt="airplane"
+              draggable="false"
             />
-            <div class="elements hidden" id="container_airplane_explosion">
             <img
-              class="sprite_width"
-              id="sprite_explosion_airplane"
-              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
-              alt="airplane_explosion"
+              class="sprite_width sprite_explosion hidden"
+              src="assets/img/game-elements/explosion.svg"
+              alt="explosion"
             />
-          </div>
           </div>
 
-          <div class="hot_air_balloon elements" id="container_hot_air_balloon">
+          <div class="element_container" id="ctr_air_balloon">
             <img
-              class="sprite_width"
-              id="sprite_hot_air_balloon"
-              src="assets/img/game-elements/Clicker-game-hot-air-balloon.svg"
-              draggable = "false"
-              alt="hot_air_balloon"
+              class="sprite_width sprite_element"
+              src="assets/img/game-elements/civil_balloon.svg"
+              alt="air_balloon"
+              draggable="false"
             />
-            <div class="elements hidden" id="container_hot_air_balloon_explosion">
             <img
-              class="sprite_width"
-              id="sprite_explosion_hot_air_balloon"
-              src="assets/img/game-elements/Clicker-game-explosion-2.svg"
-              alt="hot_air_balloon_explosion"
+              class="sprite_width sprite_explosion hidden"
+              src="assets/img/game-elements/explosion.svg"
+              alt="explosion"
             />
-          </div>
           </div>
 
-          <div class="aa_gun elements" id="container_aa_gun">
-            <img class="sprite_width" id="sprite_aa_gun"
-            src="assets/img/game-elements/clicker-game-howitzer.svg"
-            alt="aa_gun"/>
+          <div class="element_container" id="ctr_howitzer">
+            <img
+              class="sprite_width"
+              src="assets/img/game-elements/howitzer.svg"
+              alt="howitzer"
+              draggable="false"
+            />
           </div>
         </div>
 
         <div id="game_ui">
-          <div class="timer_bar" id="container_timer_bar">
+          <div class="timer_bar" id="ctr_timer">
             <img
-              class="sprite_width"
-              id="sprite_timer_bar"
-              src="assets/img/game-ui/Clicker-ui-bullets.svg"
-              alt="timer_bar"
+              class="sprite_width sprite_timer"
+              src="assets/img/game-ui/bullets.svg"
+              alt="timer"
             />
-            <div id="container_timer_bar_countdown"></div>
+            <div id="ctr_timer_countdown"></div>
           </div>
 
-          <div id="show_scoreboard">
-          <div class="scoreboard" id="container_scoreboard">
-            <div id="score_text">
-              <p>Score: </p>
-            </div>
+          <div id="ctr_score_rank">
+            <div class="scoreboard" id="ctr_scoreboard">
+              <div id="score_text">
+                <p>Score:</p>
+              </div>
 
-            <div id="score_counter" class="scoreboard_counters">
-              <p id="score"></p>
-            </div>
+              <div id="score_counter" class="scoreboard_counters">
+                <p id="score"></p>
+              </div>
 
-            <div id="rank_text">
-              <p>Rank: </p>
-            </div>
+              <div id="rank_text">
+                <p>Rank:</p>
+              </div>
 
-            <div id="rank_counter" class="scoreboard_counters scoreboard_icons">
-              <img 
-              class="sprite_width" 
-              id="sprite_rank_gold" 
-              src="assets/img/game-ui/Clicker-ui-star-gold.svg"
-              alt="gold_star" />
-              <img 
-              class="sprite_width hidden" 
-              id="sprite_rank_metal" 
-              src="assets/img/game-ui/Clicker-ui-star-metal.svg"
-              alt="metal_star" />
-              <img 
-              class="sprite_width hidden" 
-              id="sprite_rank_wood" 
-              src="assets/img/game-ui/Clicker-ui-star-wood.svg"
-              alt="wood_star" />
+              <div
+                id="rank_counter"
+                class="scoreboard_counters scoreboard_icons"
+              >
+                <img
+                  class="sprite_width"
+                  id="sprite_rank_gold"
+                  src="assets/img/game-ui/gold_star.svg"
+                  alt="gold_star"
+                />
+                <img
+                  class="sprite_width hidden"
+                  id="sprite_rank_metal"
+                  src="assets/img/game-ui/metal_star.svg"
+                  alt="metal_star"
+                />
+                <img
+                  class="sprite_width hidden"
+                  id="sprite_rank_wood"
+                  src="assets/img/game-ui/wood_star.svg"
+                  alt="wood_star"
+                />
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </section>
 
       <section id="start_screen" class="hidden">
         <!-- START SCREEN -->
-        <h2 id="start_screen_header">Airspace Defence</h2>
-        <div id="start_screen_message">
+        <h2 class="ui_header">Airspace Defence</h2>
+        <div class="ui_message">
           <p>Welcome Soldier!</p>
           <p>Your mission is to destroy the enemies invading our airspace.</p>
           <p>Shoot the enemy fighter jets and weather balloons spying on us.</p>
           <p>DO NOT let the aliens land.</p>
           <p>DO NOT shoot the civilian aircrafts and hot air balloons.</p>
 
-          <p>You have 60 seconds to complete your mission. </p>
+          <p>You have 60 seconds to complete your mission.</p>
           <p>Good luck!</p>
         </div>
-        <div id="start_screen_button">
-          <button id="start_button">Start Mission</button>
+        <div class="ui_buttons">
+          <button id="start_btn">Start Mission</button>
         </div>
       </section>
 
       <section id="game_over" class="hidden">
         <!-- GAME OVER SCREEN -->
-        <h2 id="game_over_header">game over</h2>
-        <p id="game_over_message"></p>
-        <div id="game_over_buttons">
-          <button id="game_over_button_play_again">Replay Mission</button>
-          <button id="game_over_button_main_menu">Main Menu</button>
+        <h2 class="ui_header">game over</h2>
+        <p class="ui_message"></p>
+        <div class="ui_buttons">
+          <button id="go_replay_btn">Replay Mission</button>
+          <button id="go_mm_btn">Main Menu</button>
         </div>
       </section>
 
       <section id="level_complete" class="hidden">
         <!-- LEVEL COMPLETE SCREEN -->
-        <h2 id="level_complete_header">level complete</h2>
-        <p id="level_complete_message"></p>
-        <div id="level_complete_buttons">
-          <button id="level_complete_button_next_level">Next Mission</button>
-          <button id="level_complete_button_main_menu">Main Menu</button>
+        <h2 class="ui_header">level complete</h2>
+        <p class="ui_message"></p>
+        <div class="ui_buttons">
+          <button id="lc_nl_btn">Next Mission</button>
+          <button id="lc_mm_btn">Main Menu</button>
         </div>
       </section>
-
     </main>
 
-    <script src="./assets/js/game_elements.js"></script>
-    <script src="./assets/js/game_ui.js"></script>
+    <script src="./assets/js/refactored_game_elements.js"></script>
+    <!-- <script src="./assets/js/game_ui.js"></script> -->
     <script src="./assets/js/game.js"></script>
   </body>
 </html>

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/styles/main.css" />
     <link rel="stylesheet" href="./assets/styles/game_elements.css" />
-    <!-- <link rel="stylesheet" href="./assets/styles/animations.css" /> -->
     <link rel="stylesheet" href="./assets/styles/game_ui.css" />
     <link rel="icon" href="#" type="image/x-icon" />
     <title>Airspace Defence</title>
@@ -178,7 +177,7 @@
         </div>
       </section>
 
-      <section id="start_screen" class="hidden">
+      <section id="start_screen" class="ui_screen hidden">
         <!-- START SCREEN -->
         <h2 class="ui_header">Airspace Defence</h2>
         <div class="ui_message">
@@ -196,7 +195,7 @@
         </div>
       </section>
 
-      <section id="game_over" class="hidden">
+      <section id="game_over" class="ui_screen hidden">
         <!-- GAME OVER SCREEN -->
         <h2 class="ui_header">game over</h2>
         <p class="ui_message"></p>
@@ -206,7 +205,7 @@
         </div>
       </section>
 
-      <section id="level_complete" class="hidden">
+      <section id="level_complete" class="ui_screen hidden">
         <!-- LEVEL COMPLETE SCREEN -->
         <h2 class="ui_header">level complete</h2>
         <p class="ui_message"></p>
@@ -216,9 +215,13 @@
         </div>
       </section>
     </main>
+    <!-- insert audio elements below -->
 
-    <script src="./assets/js/refactored_game_elements.js"></script>
-    <!-- <script src="./assets/js/game_ui.js"></script> -->
+
+
+    <!-- insert javaScript scripts below -->
+    <script src="./assets/js/game_elements.js"></script>
+    <script src="./assets/js/game_ui.js"></script>
     <script src="./assets/js/game.js"></script>
   </body>
 </html>

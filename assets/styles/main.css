@@ -4,9 +4,9 @@
 /* ===== VARIABLES ===== */
 :root {
     --font-family: 'JetBrains Mono', monospace;
-    --font-size-headers: 2.8vw;
-    --font-size-messages: 1.7vw;
-    --font-size-buttons: 1.6vw;
+    --font-size-headers: 2.4vw;
+    --font-size-messages: 1.25vw;
+    --font-size-buttons: 1.3vw;
     --font-weight: 300;
     --font-color: #fff;
     --font-color-dark: #000;
@@ -44,6 +44,66 @@ img {
   width: 100%;
 }
 
+.ui_screen {
+    height: 40vw;
+    width: 50vw;
+    z-index: 200;
+    top: 15%;
+    left: 25%;
+    background: var(--background-color);
+    border-radius: 16px;
+    box-shadow: var(--box-shadow);
+    backdrop-filter: blur(5.6px);
+    border: var(--border);
+    position: absolute;
+}
+
+.ui_header{
+    position: relative;
+    font-family: var(--font-family);
+    font-size: var(--font-size-headers);
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--font-color-dark);
+}
+
+.ui_message {
+    position: relative;
+    font-family: var(--font-family);
+    font-size: var(--font-size-messages);
+    text-align: left;
+    line-height: 1.2;
+    padding: 0 3em;
+    margin: 0;
+    color: var(--font-color-dark);
+}
+
+.ui_message > p {
+    margin: 0.5em 0;
+}
+
+.ui_buttons {
+    position: relative;
+    width: 100%;
+    margin: 1vw 0 0 0;
+}
+
+.ui_buttons > button {
+    background: rgb(105,105,105);
+    background: linear-gradient(145deg, rgb(40, 40, 40) 0%, rgb(100, 100, 100) 50%, rgb(185, 185, 185) 100%);
+    border-radius: 1em;
+    border: none;
+    color: var(--font-color);
+    text-shadow: var(--text-shadow);
+    font-family: var(--font-family);
+    font-size: var(--font-size-buttons);
+    font-weight: 600;
+    padding: 1vw;
+    margin: 0.5vw 0 0 12vw;
+    min-width: 50%;
+    cursor: pointer;   
+}
+
 /* ===== GAME SECTION STYLING ===== */
 #game {
     display: grid;
@@ -55,185 +115,4 @@ img {
     background-image: url(../img/background/game_bg.svg);
     background-size: cover;
     z-index: 50;
-} 
-
-
-
-/* --- START SCREEN STYLING --- */
-#start_screen {
-    height: 40vw;
-    width: 50vw;
-    z-index: 200;
-    top: 15%;
-    left: 25%;
-    background: var(--background-color);
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    backdrop-filter: blur(5.6px);
-    border: var(--border);
-    position: absolute;
-}
-
-#start_screen_header{
-    position: relative;
-    font-family: var(--font-family);
-    font-size: var(--font-size-headers);
-    text-transform: uppercase;
-    text-align: center;
-    color: var(--font-color-dark);
-}
-
-#start_screen_message p {
-    position: relative;
-    font-family: var(--font-family);
-    font-size: var(--font-size-messages);
-    text-align: left;
-    padding: 0 3em;
-    margin: 0;
-    color: var(--font-color-dark);
-}
-
-#start_screen_button {
-    position: relative;
-    width: 100%;
-    margin: 1vw 0 0 0;
-}
-
-#start_screen_button button {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    backdrop-filter: blur(5.6px);
-    border: var(--border);
-    color: var(--font-color);
-    text-shadow: var(--text-shadow);
-    font-family: var(--font-family);
-    font-size: var(--font-size-buttons);
-    font-weight: 600;
-    padding: 1vw;
-    margin: 0.5vw 0 0 12vw;
-    min-width: 50%;
-    cursor: pointer;
-    
-}
-
-/* --- GAME OVER STYLING --- */
-#game_over {
-    height: 40vw;
-    width: 50vw;
-    z-index: 200;
-    top: 15%;
-    left: 25%;
-    background: var(--background-color);
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    backdrop-filter: blur(5.6px);
-    border: var(--border);
-    position: absolute;
-}
-
-#game_over_header{
-    position: relative;
-    font-family: var(--font-family);
-    font-size: var(--font-size-headers);
-    text-transform: uppercase;
-    text-align: center;
-    color:var(--font-color-dark);
-    /* height: 20%; */
-    
-}
-
-#game_over_message {
-    position: relative;
-    font-family: var(--font-family);
-    font-size: var(--font-size-messages);
-    text-align: left;
-    padding: 0 3em;
-    margin: 0;
-    color:var(--font-color-dark);
-}
-
-#game_over_buttons {
-    position: relative;
-    width: 100%;
-    margin: 1vw 0 0 0;
-}
-
-#game_over_buttons button {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    backdrop-filter: blur(5.6px);
-    border: var(--border);
-    color: var(--font-color);
-    text-shadow: var(text-shadow);
-    font-family: var(--font-family);
-    font-size: var(--font-size-buttons);
-    font-weight: 600;
-    padding: 1vw;
-    margin: 0.5vw 0 0 12vw;
-    min-width: 50%;
-    cursor: pointer;
-    
-}
-
-
-/* --- LEVEL COMPLETE STYLING --- */
-#level_complete {
-    height: 40vw;
-    width: 50vw;
-    z-index: 200;
-    top: 15%;
-    left: 25%;
-    background: var(--background-color);
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    backdrop-filter: blur(5.6px);
-    border: var(--border);
-    position: absolute;
-}
-
-#level_complete_header{
-    position: relative;
-    font-family: var(--font-family);
-    font-size: var(--font-size-headers);
-    text-transform: uppercase;
-    text-align: center;
-    color:var(--font-color-dark);
-    /* height: 20%; */
-    
-}
-
-#level_complete_message {
-    position: relative;
-    font-family: var(--font-family);
-    font-size: var(--font-size-messages);
-    text-align: left;
-    padding: 0 3em;
-    margin: 0;
-    color: var(--font-color-dark);
-}
-
-#level_complete_buttons {
-    position: relative;
-    width: 100%;
-    margin: 1vw 0 0 0;
-}
-
-#level_complete_buttons button {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    backdrop-filter: blur(5.6px);
-    border: var(--border);
-    color: var(--font-color);
-    text-shadow: var(--text-shadow);
-    font-family: var(--font-family);
-    font-size: var(--font-size-buttons);
-    font-weight: 600;
-    padding: 1vw;
-    margin: 0.5vw 0 0 12vw;
-    min-width: 50%;
-    cursor: pointer;
-    
 }

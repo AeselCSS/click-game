@@ -1,18 +1,18 @@
 /* ===== IMPORTS ===== */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
 
-/* ===== GLOBAL VARIABLES ===== */
+/* ===== VARIABLES ===== */
 :root {
     --font-family: 'JetBrains Mono', monospace;
-    --font-size-screen-header: 2.8vw;
-    --font-size-screen-message: 1.7vw;
-    --font-size-screen-button: 1.6vw;
+    --font-size-headers: 2.4vw;
+    --font-size-messages: 1.25vw;
+    --font-size-buttons: 1.3vw;
     --font-weight: 300;
     --font-color: #fff;
     --font-color-dark: #000;
     --text-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.5);
     --background-color: rgba(255, 255, 255, 0.30);
-    --border: border: 1px solid rgba(255, 255, 255, 0.3);
+    --border: 1px solid rgba(255, 255, 255, 0.3);
     --box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -44,289 +44,75 @@ img {
   width: 100%;
 }
 
+.ui_screen {
+    height: 40vw;
+    width: 50vw;
+    z-index: 200;
+    top: 15%;
+    left: 25%;
+    background: var(--background-color);
+    border-radius: 16px;
+    box-shadow: var(--box-shadow);
+    backdrop-filter: blur(5.6px);
+    border: var(--border);
+    position: absolute;
+}
+
+.ui_header{
+    position: relative;
+    font-family: var(--font-family);
+    font-size: var(--font-size-headers);
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--font-color-dark);
+}
+
+.ui_message {
+    position: relative;
+    font-family: var(--font-family);
+    font-size: var(--font-size-messages);
+    text-align: left;
+    line-height: 1.2;
+    padding: 0 3em;
+    margin: 0;
+    color: var(--font-color-dark);
+}
+
+.ui_message > p {
+    margin: 0.5em 0;
+}
+
+.ui_buttons {
+    position: relative;
+    width: 100%;
+    margin: 1vw 0 0 0;
+}
+
+.ui_buttons > button {
+    background: rgb(105,105,105);
+    background: linear-gradient(145deg, rgb(40, 40, 40) 0%, rgb(100, 100, 100) 50%, rgb(185, 185, 185) 100%);
+    border-radius: 1em;
+    border: none;
+    color: var(--font-color);
+    text-shadow: var(--text-shadow);
+    font-family: var(--font-family);
+    font-size: var(--font-size-buttons);
+    font-weight: 600;
+    padding: 1vw;
+    margin: 0.5vw 0 0 12vw;
+    min-width: 50%;
+    cursor: pointer;   
+}
+
 /* ===== GAME SECTION STYLING ===== */
 #game {
     display: grid;
     grid-template: 100% / 100%;
     position: relative;
-    cursor: url(../img/game-ui/Clicker-ui-crosshair.svg), auto;
 }
 
  #game_background {
-    background-image: url(../img/background/Clicker-game-bg.svg);
+    background-image: url(../img/background/game_bg.svg);
     background-size: cover;
     z-index: 50;
-} 
-
-/* --- Game Elements --- */
-
-.elements {
-    position: absolute;
-    z-index: 100;
-    margin: 0;
-    padding: 0;
-    top: 50%;
-    left: -15%;
-}
-
-#container_ufo {
-    width: 7.5%;
-    top: -15%;
-    left: 20%;
-}
-
-#container_weather_balloon {
-    width: 5%;
-}
-
-#container_fighter_jet {
-    width: 8%;
-    rotate: -10deg;
-}
-
-#container_fighter_jet_2 {
-    width: 8%;
-    top: 20%;
-    left: 100%;
-}
-
-#container_fighter_jet_3 {
-    width: 8%;
-    rotate: -10deg;
-}
-
-#container_airplane {
-    width: 12%;
-}
-
-#container_hot_air_balloon {
-    width: 5%;
-}
-
-#container_aa_gun {
-    width: 15%;
-    top: 80%;
-    left: 10%;
-}
-
-/* --- resizing and repositioning of each explosions  --- */
-#container_ufo_explosion {
-    width: 140%;
-    top: -10%;
-    left: -20%;
-}
-
-#container_fighter_jet_explosion {
-    width: 100%;
-    top: -35%;
-    left: 0%;
-}
-
-#container_fighter_jet_2_explosion {
-    width: 100%;
-    top: -35%;
-    left: 0%;
-}
-
-#container_fighter_jet_3_explosion {
-    width: 100%;
-    top: -35%;
-    left: 0%;
-}
-
-#container_weather_balloon_explosion {
-    width: 150%;
-    top: 0%;
-    left: -23%;
-}
-
-#container_airplane_explosion {
-    width: 80%;
-    top: -20%;
-    left: 20%;
-}
-
-#container_hot_air_balloon_explosion {
-    width: 150%;
-    top: 40%;
-    left: -25%;
-}
-
-/* --- START SCREEN STYLING --- */
-#start_screen {
-    height: 40vw;
-    width: 50vw;
-    z-index: 200;
-    top: 15%;
-    left: 25%;
-    background: var(--background-color);
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    backdrop-filter: blur(5.6px);
-    border: var(--border);
-    position: absolute;
-}
-
-#start_screen_header{
-    position: relative;
-    font-family: var(--font-family);
-    font-size: var(--font-size-screen-header);
-    text-transform: uppercase;
-    text-align: center;
-    color: var(--font-color-dark);
-}
-
-#start_screen_message p {
-    position: relative;
-    font-family: var(--font-family);
-    font-size: var(--font-size-screen-message);
-    text-align: left;
-    padding: 0 3em;
-    margin: 0;
-    color: var(--font-color-dark);
-}
-
-#start_screen_button {
-    position: relative;
-    width: 100%;
-    margin: 1vw 0 0 0;
-}
-
-#start_screen_button button {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    backdrop-filter: blur(5.6px);
-    border: var(--border);
-    color: var(--font-color);
-    text-shadow: var(text-shadow);
-    font-family: var(--font-family);
-    font-size: var(--font-size-screen-button);
-    font-weight: 600;
-    padding: 1vw;
-    margin: 0.5vw 0 0 12vw;
-    min-width: 50%;
-    cursor: pointer;
-    
-}
-
-/* --- GAME OVER STYLING --- */
-#game_over {
-    height: 40vw;
-    width: 50vw;
-    z-index: 200;
-    top: 15%;
-    left: 25%;
-    background: var(--background-color);
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    backdrop-filter: blur(5.6px);
-    border: var(--border);
-    position: absolute;
-}
-
-#game_over_header{
-    position: relative;
-    font-family: var(--font-family);
-    font-size: var(--font-size-screen-header);
-    text-transform: uppercase;
-    text-align: center;
-    color:var(--font-color-dark);
-    /* height: 20%; */
-    
-}
-
-#game_over_message {
-    position: relative;
-    font-family: var(--font-family);
-    font-size: var(--font-size-screen-message);
-    text-align: left;
-    padding: 0 3em;
-    margin: 0;
-    color:var(--font-color-dark);
-}
-
-#game_over_buttons {
-    position: relative;
-    width: 100%;
-    margin: 1vw 0 0 0;
-}
-
-#game_over_buttons button {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    backdrop-filter: blur(5.6px);
-    border: var(--border);
-    color: var(--font-color);
-    text-shadow: var(text-shadow);
-    font-family: var(--font-family);
-    font-size: var(--font-size-screen-button);
-    font-weight: 600;
-    padding: 1vw;
-    margin: 0.5vw 0 0 12vw;
-    min-width: 50%;
-    cursor: pointer;
-    
-}
-
-
-/* --- LEVEL COMPLETE STYLING --- */
-#level_complete {
-    height: 40vw;
-    width: 50vw;
-    z-index: 200;
-    top: 15%;
-    left: 25%;
-    background: var(--background-color);
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    backdrop-filter: blur(5.6px);
-    border: var(--border);
-    position: absolute;
-}
-
-#level_complete_header{
-    position: relative;
-    font-family: var(--font-family);
-    font-size: var(--font-size-screen-header);
-    text-transform: uppercase;
-    text-align: center;
-    color:var(--font-color-dark);
-    /* height: 20%; */
-    
-}
-
-#level_complete_message {
-    position: relative;
-    font-family: var(--font-family);
-    font-size: var(--font-size-screen-message);
-    text-align: left;
-    padding: 0 3em;
-    margin: 0;
-    color: var(--font-color-dark);
-}
-
-#level_complete_buttons {
-    position: relative;
-    width: 100%;
-    margin: 1vw 0 0 0;
-}
-
-#level_complete_buttons button {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    backdrop-filter: blur(5.6px);
-    border: var(--border);
-    color: var(--font-color);
-    text-shadow: var(--text-shadow);
-    font-family: var(--font-family);
-    font-size: var(--font-size-screen-button);
-    font-weight: 600;
-    padding: 1vw;
-    margin: 0.5vw 0 0 12vw;
-    min-width: 50%;
-    cursor: pointer;
-    
 }

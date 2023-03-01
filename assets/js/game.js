@@ -2,42 +2,39 @@
 
 window.addEventListener("load", showStartScreen);
 
-
-// START GAME
+// ===== START GAME =====
 function startGame() {
   resetRank();
   resetScore();
   startScore();
-  startTime();
-  startMovement();
-  startEvents();
+//   startTime();
+  startGameElements();
   showGameElements();
   showUiElements();
   console.log("game started - rank: " + rank + " score: " + score);
 }
 
-// STOP GAME
+// ===== STOP GAME =====
 function stopGame() {
-  stopEvents();
-  stopMovement();
-  stopTimer();
+  stopGameElements();
+//   stopTime();
   hideGameElements();
   hideUiElements();
   console.log("game stopped - rank: " + rank + " score: " + score);
 }
 
 
-// EVALUATE WIN/LOOSE CONDITIONS
+// ===== EVALUATE WIN/LOOSE CONDITIONS =====
 function evaluateWinLooseConditions() {
     if (score >= 100 && rank >= 1) {
-        showNextLevelScreen();
-        nextLevelMessage();
+        gameEndMessage("win");
+        showLevelCompleteScreen();
     } else if (score < 100 && rank >= 1) {
+        gameEndMessage("looseScore");
         showGameOverScreen();
-        gameOverMessageScoreTooLow();
     } else {
+        gameEndMessage("looseDemotion");
         showGameOverScreen();
-        gameOverMessageRankDecrease();
     }
 }
 

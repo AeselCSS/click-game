@@ -1,22 +1,24 @@
 /* ===== GAME UI ===== */
 /* ===== TIMER BAR & COUNTDOWN STYLES*/
-#container_timer_bar {
-  bottom: 1.5%;
+#ctr_timer {
+  bottom: 1%;
   left: 37%;
   width: 30%;
   position: absolute;
   z-index: 100;
-  background-color: rgb(102, 102, 102);
-  border: 1px solid rgb(255, 255, 255, 0.5);
-  border-radius: 0.5em;
+  background-color: var(--background-color);
+  /* background-color: black; */
+  border: var(--border);
+  border-radius: 8px;
 }
 
-#sprite_timer_bar {
+.sprite_timer {
   width: 98%;
-  padding: 0 0.3em;
+  padding: 1% 1%;
+  /* background-color: rgb(127, 255, 212, 0.5); */
 }
 
-#container_timer_bar_countdown {
+/* #ctr_timer_countdown {
   bottom: 0%;
   left: 1.1%;
   height: 100%;
@@ -24,16 +26,34 @@
   position: absolute;
   z-index: 100;
   background-color: rgb(102, 102, 102);
+} */
+
+.timer_countdown {
+  animation-name: timer_countdown;
+  animation-duration: 60s;
+  animation-timing-function: steps(60);
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+  transform-origin: right;
+  animation-fill-mode: forwards;
+}
+
+@keyframes timer_countdown {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0, 1);
+  }
 }
 
 /* SCOREBOARD STYLES*/
-
-#container_scoreboard {
+#ctr_scoreboard {
   display: grid;
   grid-template-columns: 2fr 3fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    "points_text points"
+    "score_text score"
     "rank_text rank";
   bottom: 1%;
   right: 1%;
@@ -52,7 +72,7 @@
 
 .scoreboard {
   font-family: var(--font-family);
-  font-size: 2.8vw;
+  font-size: var(--font-size-headers);
   color: var(--font-color);
   text-shadow: var(--text-shadow);
   z-index: 100;
@@ -69,12 +89,12 @@
 }
 
 #score_text {
-  grid-area: points_text;
+  grid-area: score_text;
   /* border: 1px solid red; */
 }
 
 #score_counter {
-  grid-area: points;
+  grid-area: score;
   padding: 0.27em 0 0 0;
   text-align: center;
   /* border: 1px solid yellow; */
@@ -104,4 +124,36 @@
 .scoreboard_icons img {
   margin: 0;
   padding: 0;
+}
+
+.glow {
+  animation-name: glow;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0px 0px 0px rgb(0, 255, 0));
+  }
+  100% {
+    filter: drop-shadow(4px 4px 10px rgb(0, 255, 0));
+  }
+}
+
+.glow_red {
+  animation-name: glow_red;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes glow_red {
+  0% {
+    filter: drop-shadow(0px 0px 0px red);
+  }
+  100% {
+    filter: drop-shadow(4px 4px 10px red);
+  }
 }

@@ -21,3 +21,6 @@ Basic 2d game with various moving objects that either has to be clicked on or le
 - Fighter jet created by suricoma on [Depositphotos](https://da.depositphotos.com/46370961/stock-illustration-fighter-jet.html)
 - Weather balloon created by Andramin on [Depositphotos](https://da.depositphotos.com/239591722/stock-illustration-weather-balloon-radiosonde-blue-sky.html)
 - Howitzer created by robuart on [Depositphotos](https://da.depositphotos.com/138315840/stock-illustration-howitzer-vector-illustration-in-flat.html)
+
+## Credits for sounds:
+All sound effect are from [Pixabay](https://pixabay.com/)

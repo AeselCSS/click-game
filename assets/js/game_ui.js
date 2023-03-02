@@ -146,7 +146,7 @@ function showLevelCompleteScreen() {
   playLevelCompleteScreenSound();
   document.querySelector("#lc_mm_btn").addEventListener("click", mainMenuButton);
   document
-    .querySelector("#lc_mm_btn")
+    .querySelector("#lc_nl_btn")
     .addEventListener("click", nextLevelButton);
 }
 
@@ -170,6 +170,7 @@ function nextLevelButton() {
 
 // ===== MAIN MENU BUTTON =====
 function mainMenuButton() {
+  console.log("main menu button clicked");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
   document.querySelector("#start_screen").classList.remove("hidden");

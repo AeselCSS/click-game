@@ -1,37 +1,22 @@
 "use strict";
 
-// ===== SHOW/HIDE UI ELEMENTS =====
-function showUiElements() {
-  document.querySelector("#game_ui").classList.remove("hidden");
-}
-
-function hideUiElements() {
-  document.querySelector("#game_ui").classList.add("hidden");
-}
-
 // ===== SCOREBOARD =====
 // ===== SCORE =====
 const targetScore = 100;
 let score = 0;
 
 function startScore() {
-  document.querySelector(
-    "#score_counter"
-  ).textContent = `${score}/${targetScore}`;
+  document.querySelector("#score_counter").textContent = `${score}/${targetScore}`;
 }
 
 function updateScore(points) {
   score += points;
   scoreboardGlow();
   if (score < targetScore) {
-    console.log(score);
-    document.querySelector(
-      "#score_counter"
-    ).textContent = `${score}/${targetScore}`;
+    document.querySelector("#score_counter").textContent = `${score}/${targetScore}`;
   } else {
     console.log("stop game - score reached");
     stopGame();
-    evaluateWinLooseConditions();
   }
 }
 
@@ -40,17 +25,26 @@ function resetScore() {
 }
 
 function scoreboardGlow() {
-  document.querySelector("#ctr_scoreboard").classList.add("glow");
-  setTimeout(() => {
-    document.querySelector("#ctr_scoreboard").classList.remove("glow");
-  }, 1000);
+  let element = document.querySelector("#ctr_scoreboard");
+  element.classList.add("glow");
+  element.addEventListener("animationend", (event) => {
+    let animation = event.animationName;
+    clearAnimation(element, animation);
+  });
 }
 
 function scoreboardGlowRed() {
-  document.querySelector("#ctr_scoreboard").classList.add("glow_red");
-  setTimeout(() => {
-    document.querySelector("#ctr_scoreboard").classList.remove("glow_red");
-  }, 1000);
+  let element = document.querySelector("#ctr_scoreboard");
+  element.classList.add("glow_red");
+  element.addEventListener("animationend", (event) => {
+    let animation = event.animationName;
+    clearAnimation(element, animation);
+  });
+}
+
+function clearAnimation(element, animation) {
+  console.log("animation: " + animation + " cleared!");
+  element.classList.remove(animation);
 }
 
 // ===== RANK =====
@@ -58,10 +52,10 @@ let rank = 3;
 
 function decreaseRank(decreaseValue) {
   rank -= decreaseValue;
-  console.log("rank decreased");
-  console.log(rank);
+  console.log("rank decreased - current rank: " + rank);
   scoreboardGlowRed();
-  updateRank();
+  setTimeout(updateRank, 1400);
+  // updateRank();
 }
 
 function updateRank() {
@@ -74,23 +68,19 @@ function updateRank() {
     rankGold.classList.remove("hidden");
     rankMetal.classList.add("hidden");
     rankWood.classList.add("hidden");
-    console.log("rank 3");
   } else if (rank === 2) {
     // display metal star
     rankGold.classList.add("hidden");
     rankMetal.classList.remove("hidden");
-    console.log("rank 2");
   } else if (rank === 1) {
     // display wooden star
     rankGold.classList.add("hidden");
     rankMetal.classList.add("hidden");
     rankWood.classList.remove("hidden");
-    console.log("rank 1");
   } else if (rank <= 0) {
     // game over
     console.log("game over - rank depleted");
     stopGame();
-    evaluateWinLooseConditions();
   }
 }
 
@@ -100,79 +90,85 @@ function resetRank() {
 }
 
 // // ===== TIMER =====
-// function startTime() {
-//   timeCountdown.classList.add("timer_bar_countdown");
-//   console.log("time started");
-//   timeCountdown.addEventListener("animationend", timeEnd);
-// }
+function startTime() {
+  document.querySelector("#timer_countdown").classList.add("countdown");
+  console.log("time started");
+  delayedTimeAlarmSound();
+  document.querySelector("#timer_countdown").addEventListener("animationend", timeEnd);
+}
 
-// // might be redundant since it will be hidden when hideUiElements function are called
-// function stopTime() {
-//   timeCountdown.classList.remove("timer_bar_countdown");
-// }
-
-// function timeEnd() {
-//   console.log("time ran out");
-//   stopGame();
-//   evaluateWinLooseConditions();
-// }
+function timeEnd() {
+  console.log("time ran out");
+  stopGame();
+}
+function stopTime() {
+  clearDelayedTimeAlarmSound();
+  document.querySelector("#timer_countdown").classList.remove("countdown");
+}
 
 // ===== START SCREEN (MAIN MENU) =====
 function showStartScreen() {
   document.querySelector("#start_screen").classList.remove("hidden");
+  document.querySelector("#start_screen").classList.remove("fade_out");
+  document.querySelector("#start_screen").classList.add("fade_in");
   playStartScreenSound();
-  document
-    .querySelector("#start_screen")
-    .addEventListener("click", startButton);
+  document.querySelector("#start_screen").addEventListener("click", startButton);
   hideGameElements();
   hideUiElements();
 }
 
 // ===== GAME OVER SCREEN =====
 function showGameOverScreen() {
-  stopGame();
   document.querySelector("#game_over").classList.remove("hidden");
+  document.querySelector("#game_over").classList.remove("fade_out");
+  document.querySelector("#game_over").classList.add("fade_in");
   playGameOverScreenSound();
   document.querySelector("#go_mm_btn").addEventListener("click", mainMenuButton);
-  document
-  .querySelector("#go_replay_btn")
-  .addEventListener("click", restartButton);
+  document.querySelector("#go_replay_btn").addEventListener("click", restartButton);
 }
 
 // ===== NEXT LEVEL SCREEN =====
 function showLevelCompleteScreen() {
-  stopGame();
   document.querySelector("#level_complete").classList.remove("hidden");
+  document.querySelector("#level_complete").classList.remove("fade_out");
+  document.querySelector("#level_complete").classList.add("fade_in");
   playLevelCompleteScreenSound();
   document.querySelector("#lc_mm_btn").addEventListener("click", mainMenuButton);
-  document
-    .querySelector("#lc_nl_btn")
-    .addEventListener("click", nextLevelButton);
+  document.querySelector("#lc_nl_btn").addEventListener("click", nextLevelButton);
 }
 
 // ===== START BUTTON =====
 function startButton() {
-  document.querySelector("#start_screen").classList.add("hidden");
+  let startScreen = document.querySelector("#start_screen");
+  startScreen.classList.add("fade_out");
+  hideScreen(startScreen);
   startGame();
 }
 
 // ===== RESTART BUTTON =====
 function restartButton() {
-  document.querySelector("#game_over").classList.add("hidden");
+  let gameOverScreen = document.querySelector("#game_over");
+  gameOverScreen.classList.add("fade_out");
+  hideScreen(gameOverScreen);
   startGame();
 }
 
 // ===== NEXT LEVEL BUTTON =====
 function nextLevelButton() {
-  document.querySelector("#level_complete").classList.add("hidden");
+  let levelCompleteScreen = document.querySelector("#level_complete");
+  levelCompleteScreen.classList.add("fade_out");
+  hideScreen(levelCompleteScreen);
   startGame();
 }
 
 // ===== MAIN MENU BUTTON =====
 function mainMenuButton() {
-  console.log("main menu button clicked");
-  document.querySelector("#game_over").classList.add("hidden");
-  document.querySelector("#level_complete").classList.add("hidden");
+  let gameOverScreen = document.querySelector("#game_over");
+  let levelCompleteScreen = document.querySelector("#level_complete");
+  gameOverScreen.classList.add("fade_out");
+  hideScreen(gameOverScreen);
+  levelCompleteScreen.classList.add("fade_out");
+  hideScreen(levelCompleteScreen);
   document.querySelector("#start_screen").classList.remove("hidden");
   showStartScreen();
 }
@@ -183,18 +179,26 @@ function gameEndMessage(result) {
   const gameOver = document.querySelector("#game_over");
   const messageWin =
     "Congratulations Soldier! You have reached the mission target. You have been promoted and can progress to the next mission.";
-  const messageLooseDemotion =
-    "Bad luck Soldier! You have been demoted too many times. Mission is unsuccesful.";
-  const messageLooseScore =
-    "Bad luck Soldier! Your score is too low. Mission is unsuccesful.";
+  const messageLooseDemotion = "Bad luck Soldier! You have been demoted too many times. Mission is unsuccesful.";
+  const messageLooseScore = "Bad luck Soldier! Your score is too low. Mission is unsuccesful.";
 
-  if ((result === "win")) {
+  if (result === "win") {
     levelcomplete.querySelector(".ui_message").textContent = messageWin;
-  } else if ((result === "looseDemotion")) {
+  } else if (result === "looseDemotion") {
     gameOver.querySelector(".ui_message").textContent = messageLooseDemotion;
-  } else if ((result === "looseScore")) {
+  } else if (result === "looseScore") {
     gameOver.querySelector(".ui_message").textContent = messageLooseScore;
   } else {
     console.log("error:" + result);
   }
+}
+
+function hideScreen(screen) {
+  screen.addEventListener("animationend", (event) => {
+    if (event.animationName === "fade_out") {
+      screen.classList.add("hidden");
+      screen.classList.remove("fade_out");
+      screen.classList.remove("fade_in");
+    }
+  });
 }

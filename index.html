@@ -126,17 +126,14 @@
         </div>
 
         <div id="game_ui">
-          <div class="timer_bar" id="ctr_timer">
-            <img
-              class="sprite_width sprite_timer"
-              src="assets/img/game-ui/bullets.svg"
-              alt="timer"
-            />
-            <div id="ctr_timer_countdown"></div>
-          </div>
-
-          <div id="ctr_score_rank">
+          <div id="ctr_time_score_rank">
             <div class="scoreboard" id="ctr_scoreboard">
+              
+            <div id="timer_text">
+              <p>Time:</p>
+            </div>
+            <div id="timer_countdown" class="scoreboard_counters"></div>
+
               <div id="score_text">
                 <p>Score:</p>
               </div>
@@ -222,7 +219,7 @@
     <audio id="audio_ufo" src="./assets/audio/game_ufo.mp3"></audio>
     <audio id="audio_yay" src="./assets/audio/game_yay.mp3"></audio>
     <audio id="audio_oh_no" src="./assets/audio/game_oh_no.mp3"></audio>
-    <audio id="audio_times_up" src="./assets/audio/game_time_alarm.mp3"></audio>
+    <audio id="audio_time_alarm" src="./assets/audio/game_time_alarm.mp3"></audio>
     <audio id="audio_start_screen" src="./assets/audio/start_screen_air_raid_siren.mp3"></audio>
     <audio id="audio_game_over" src="./assets/audio/game_over_boooh.mp3"></audio>
     <audio id="audio_level_complete" src="./assets/audio/level_complete_wow.mp3"></audio>

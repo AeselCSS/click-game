@@ -44,15 +44,32 @@ function playUfoSpawnedSound () {
     document.querySelector("#audio_ufo").play();
 }
 
-function playTimesUpSound () {
-    document.querySelector("#audio_times_up").currentTime = 0;
-    document.querySelector("#audio_times_up").volume = 0.3;
-    document.querySelector("#audio_times_up").play();
+let delayedTimeAlarm;
+
+function delayedTimeAlarmSound () {
+    delayedTimeAlarm = setTimeout(() => {
+      playTimeAlarmSound();
+    }, 48600);
+}
+
+function clearDelayedTimeAlarmSound () {
+    if (delayedTimeAlarm) {
+      clearTimeout(delayedTimeAlarm);
+      console.log("cleared delayed time alarm sound");
+    } else {
+      console.log("Error: No delayed time alarm sound to clear");
+    }
+}
+
+function playTimeAlarmSound () {
+    document.querySelector("#audio_time_alarm").currentTime = 0;
+    document.querySelector("#audio_time_alarm").volume = 0.7;
+    document.querySelector("#audio_time_alarm").play();
 }
 
 function playStartScreenSound () {
     document.querySelector("#audio_start_screen").currentTime = 0;
-    document.querySelector("#audio_start_screen").volume = 0.3;
+    document.querySelector("#audio_start_screen").volume = 0.2;
     document.querySelector("#audio_start_screen").play();
 }
 
@@ -89,8 +106,8 @@ function stopGameSounds () {
     document.querySelector("#audio_oh_no").currentTime = 0;
     document.querySelector("#audio_ufo").pause();
     document.querySelector("#audio_ufo").currentTime = 0;
-    document.querySelector("#audio_times_up").pause();
-    document.querySelector("#audio_times_up").currentTime = 0;
+    document.querySelector("#audio_time_alarm").pause();
+    document.querySelector("#audio_time_alarm").currentTime = 0;
 }
 
 function stopScreenSounds () {

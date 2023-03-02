@@ -1,15 +1,8 @@
 "use strict";
-
-// flow: start -> initGameElements ->
-// click -> pause -> explode -> disappear -> reset -> reSpawn
-// ||
-// animationEnd -> reset -> reSpawn
-
 // ===== SHOW/HIDE GAME ELEMENTS =====
 function showGameElements() {
   document.querySelector("#game_elements").classList.remove("hidden");
 }
-
 function hideGameElements() {
   document.querySelector("#game_elements").classList.add("hidden");
 }
@@ -24,7 +17,6 @@ function startGameElements() {
   startCivilianAirplane();
   startCivilianBalloon();
 }
-
 function stopGameElements() {
   stopUfo();
   stopEnemyJet();
@@ -38,9 +30,10 @@ function stopGameElements() {
 function startUfo() {
   let ufo = document.querySelector("#ctr_ufo");
   ufo.classList.add("position_top1");
-  ufo.classList.add("delay1");
+  ufo.classList.add("delay4");
   ufo.classList.add("duration4");
   ufo.classList.add("top_to_bottom1");
+  delayedUfoSpawnSound();
   ufo.addEventListener("mousedown", ufoClicked);
   ufo.addEventListener("animationend", (event) => {
     if (
@@ -52,6 +45,7 @@ function startUfo() {
   });
   ufo.addEventListener("animationend", (event) => {
     if (event.animationName === "disappear") {
+      clearDelayedUfoSpawnSound();
       elementReset(ufo);
     }
   });
@@ -59,6 +53,7 @@ function startUfo() {
 
 function stopUfo () {
   let ufo = document.querySelector("#ctr_ufo");
+  clearDelayedUfoSpawnSound();
   elementStop(ufo);
 }
 
@@ -240,6 +235,7 @@ function ufoLanded() {
 function ufoClicked() {
   console.log("UFO CLICKED");
   elementClick();
+  playClickElementSound("enemy");
   this.removeEventListener("mousedown", ufoClicked);
   elementPaused.call(this);
 }
@@ -247,6 +243,7 @@ function ufoClicked() {
 function enemyJetClicked() {
   console.log("ENEMY JET CLICKED");
   elementClick();
+  playClickElementSound("enemy");
   this.removeEventListener("mousedown", enemyJetClicked);
   updateScore(3);
   elementPaused.call(this);
@@ -256,6 +253,7 @@ function enemyJetClicked() {
 function enemyJet2Clicked() {
   console.log("ENEMY JET 2 CLICKED");
   elementClick();
+  playClickElementSound("enemy");
   this.removeEventListener("mousedown", enemyJet2Clicked);
   updateScore(3);
   elementPaused.call(this);
@@ -265,6 +263,7 @@ function enemyJet2Clicked() {
 function enemyJet3Clicked() {
   console.log("ENEMY JET 3 CLICKED");
   elementClick();
+  playClickElementSound("enemy");
   this.removeEventListener("mousedown", enemyJet3Clicked);
   updateScore(3);
   elementPaused.call(this);
@@ -274,6 +273,7 @@ function enemyJet3Clicked() {
 function enemySpyBalloonClicked() {
   console.log("ENEMY SPY BALLOON CLICKED");
   elementClick();
+  playClickElementSound("enemy");
   this.removeEventListener("mousedown", enemySpyBalloonClicked);
   updateScore(5);
   elementPaused.call(this);
@@ -283,6 +283,7 @@ function enemySpyBalloonClicked() {
 function civilianAirplaneClicked() {
   console.log("CIVILIAN AIRPLANE CLICKED");
   elementClick();
+  playClickElementSound("civilian");
   this.removeEventListener("mousedown", civilianAirplaneClicked);
   decreaseRank(1);
   elementPaused.call(this);
@@ -292,6 +293,7 @@ function civilianAirplaneClicked() {
 function civilianBalloonClicked() {
   console.log("CIVILIAN BALLOON CLICKED");
   elementClick();
+  playClickElementSound("civilian");
   this.removeEventListener("mousedown", civilianBalloonClicked);
   decreaseRank(1);
   elementPaused.call(this);
@@ -399,6 +401,7 @@ function elementRespawn(element) {
   // add position, speed, delay and movement classes at "random"
   if (element === document.querySelector("#ctr_ufo")) {
     randomMovementUfo(element);
+    delayedUfoSpawnSound();
   } else {
     randomMovementElements(element);
   }
@@ -429,7 +432,7 @@ function randomMovementUfo(element) {
   let position = Math.floor(Math.random() * 3) + 1;
   element.classList.add("position_top" + position);
 
-  let delay = Math.floor(Math.random() * 4) + 1;
+  let delay = 4;
   element.classList.add("delay" + delay);
 
   let duration = Math.floor(Math.random() * 3) + 4;
@@ -437,16 +440,4 @@ function randomMovementUfo(element) {
 
   let movement = Math.floor(Math.random() * 3) + 1;
   element.classList.add("top_to_bottom" + movement);
-
-  console.log("new ufo created:");
-  console.log(
-    "position_top: " +
-      position +
-      ", delay: " +
-      delay +
-      ", duration: " +
-      duration +
-      ", movement: top_to_bottom" +
-      movement
-  );
 }

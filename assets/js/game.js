@@ -11,15 +11,19 @@ function startGame() {
   startGameElements();
   showGameElements();
   showUiElements();
+  stopNonGameScreenSounds();
+  playBackgroundMusic();
   console.log("game started - rank: " + rank + " score: " + score);
 }
 
 // ===== STOP GAME =====
 function stopGame() {
+  clearDelayedUfoSpawnSound();
   stopGameElements();
 //   stopTime();
   hideGameElements();
   hideUiElements();
+  stopGameSounds();
   console.log("game stopped - rank: " + rank + " score: " + score);
 }
 

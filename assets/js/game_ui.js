@@ -120,6 +120,7 @@ function resetRank() {
 // ===== START SCREEN (MAIN MENU) =====
 function showStartScreen() {
   document.querySelector("#start_screen").classList.remove("hidden");
+  playStartScreenSound();
   document
     .querySelector("#start_screen")
     .addEventListener("click", startButton);
@@ -131,16 +132,18 @@ function showStartScreen() {
 function showGameOverScreen() {
   stopGame();
   document.querySelector("#game_over").classList.remove("hidden");
+  playGameOverScreenSound();
   document.querySelector("#go_mm_btn").addEventListener("click", mainMenuButton);
   document
-    .querySelector("#go_replay_btn")
-    .addEventListener("click", restartButton);
+  .querySelector("#go_replay_btn")
+  .addEventListener("click", restartButton);
 }
 
 // ===== NEXT LEVEL SCREEN =====
 function showLevelCompleteScreen() {
   stopGame();
   document.querySelector("#level_complete").classList.remove("hidden");
+  playLevelCompleteScreenSound();
   document.querySelector("#lc_mm_btn").addEventListener("click", mainMenuButton);
   document
     .querySelector("#lc_mm_btn")

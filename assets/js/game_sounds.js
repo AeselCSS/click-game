@@ -1,4 +1,4 @@
-
+"use strict";
 function playBackgroundMusic () {
     document.querySelector("#audio_game_theme").currentTime = 0;
     document.querySelector("#audio_game_theme").volume = 0.5;

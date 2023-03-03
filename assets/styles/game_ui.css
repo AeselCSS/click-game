@@ -1,17 +1,29 @@
 /* ===== GAME UI ===== */
 /* SCOREBOARD STYLES*/
+#game_glow_frame {
+    position: absolute;
+    top: -1vw;
+    left: -1vw;
+    width: 101vw;
+    height: 57.5vw;
+    z-index: 75;
+    border: .1px solid rgba(0, 0, 0, 0.01);
+    margin: 0;
+    padding: 0;
+}
+
 #ctr_scoreboard {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-template-areas:
     "score_text score time_text time rank_text rank";
   bottom: 1%;
-  right: 20vw;
+  right: 15vw;
   margin: 0;
   padding: 0;
   height: 8%;
-  width: 60vw;
+  width: 70vw;
   position: absolute;
   z-index: 100;
   background: var(--background-color);
@@ -60,13 +72,14 @@
   grid-area: time_text;
 }
 
-#timer_countdown {
-  padding: 6% 0 0 0;
+#time_bullet_sprite {
+  background-image: url(../img/game-ui/bullet.svg);
+  background-size: cover;
   grid-area: time;
-}
-
-#timer_countdown::after {
-    content: "0";
+  scale: 0.6;
+  width: 100%;
+  height: 70%;
+  margin: 4% 0 0 0;
 }
 
 .scoreboard_icons {
@@ -119,20 +132,41 @@
   }
 }
 
-
-.glow {
-  animation-name: glow;
+.pulse {
+  animation-name: pulse;
   animation-duration: 1s;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
 }
 
-@keyframes glow {
+@keyframes pulse {
   0% {
-    filter: drop-shadow(0px 0px 0px rgb(0, 255, 0));
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
   }
   100% {
-    filter: drop-shadow(4px 4px 10px rgb(0, 255, 0));
+    transform: scale(1);
+  }
+}
+
+.pulse_btn {
+  animation-name: pulse_btn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse_btn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
@@ -145,262 +179,25 @@
 
 @keyframes glow_red {
   0% {
-    filter: drop-shadow(0px 0px 0px red);
+    box-shadow: 0px 0px 0px 0px rgb(255, 0, 0, 0.75) inset;
   }
   100% {
-    filter: drop-shadow(4px 4px 10px red);
+    box-shadow: 10px 10px 40px 20px rgb(255, 0, 0, 0.75) inset;
   }
 }
 
-.countdown::after {
-    animation-duration: 60s;
-    animation-timing-function: steps(60, start);
-    animation-name: countdown;
+.time_bullet {
+  animation-name: time_bullet;
+  animation-duration: 60s;
+  animation-timing-function: steps(60, start);
+  animation-fill-mode: both;
 }
 
-@keyframes countdown {
-    0%{
-        content: "60";
-        color: var(--timer-color-normal);
-    }
-    1.667% {
-        content: "59";
-        color: var(--timer-color-normal);
-    }
-    3.333% {
-        content: "58";
-        color: var(--timer-color-normal);
-    }
-    5% {
-        content: "57";
-        color: var(--timer-color-normal);
-    }
-    6.667% {
-        content: "56";
-        color: var(--timer-color-normal);
-    }
-    8.333% {
-        content: "55";
-        color: var(--timer-color-normal);
-    }
-    10% {
-        content: "54";
-        color: var(--timer-color-normal);
-    }
-    11.667% {
-        content: "53";
-        color: var(--timer-color-normal);
-    }
-    13.333% {
-        content: "52";
-        color: var(--timer-color-normal);
-    }
-    15% {
-        content: "51";
-        color: var(--timer-color-normal);
-    }
-    16.667% {
-        content: "50";
-        color: var(--timer-color-normal);
-    }
-    18.333% {
-        content: "49";
-        color: var(--timer-color-normal);
-    }
-    20% {
-        content: "48";
-        color: var(--timer-color-normal);
-    }
-    21.667% {
-        content: "47";
-        color: var(--timer-color-normal);
-    }
-    23.333% {
-        content: "46";
-        color: var(--timer-color-normal);
-    }
-    25% {
-        content: "45";
-        color: var(--timer-color-normal);
-    }
-    26.667% {
-        content: "44";
-        color: var(--timer-color-normal);
-    }
-    28.333% {
-        content: "43";
-        color: var(--timer-color-normal);
-    }
-    30% {
-        content: "42";
-        color: var(--timer-color-normal);
-    }
-    31.667% {
-        content: "41";
-        color: var(--timer-color-normal);
-    }
-    33.333% {
-        content: "40";
-        color: var(--timer-color-normal);
-    }
-    35% {
-        content: "39";
-        color: var(--timer-color-normal);
-    }
-    36.667% {
-        content: "38";
-        color: var(--timer-color-normal);
-    }
-    38.333% {
-        content: "37";
-        color: var(--timer-color-normal);
-    }
-    40% {
-        content: "36";
-        color: var(--timer-color-normal);
-    }
-    41.667% {
-        content: "35";
-        color: var(--timer-color-normal);
-    }
-    43.333% {
-        content: "34";
-        color: var(--timer-color-normal);
-    }
-    45% {
-        content: "33";
-        color: var(--timer-color-normal);
-    }
-    46.667% {
-        content: "32";
-        color: var(--timer-color-normal);
-    }
-    48.333% {
-        content: "31";
-        color: var(--timer-color-normal);
-    }
-    50% {
-        content: "30";
-        color: var(--timer-color-normal);
-    }
-    51.667% {
-        content: "29";
-        color: var(--timer-color-normal);
-    }
-    53.333% {
-        content: "28";
-        color: var(--timer-color-normal);
-    }
-    55% {
-        content: "27";
-        color: var(--timer-color-normal);
-    }
-    56.667% {
-        content: "26";
-        color: var(--timer-color-normal);
-    }
-    58.333% {
-        content: "25";
-        color: var(--timer-color-normal);
-    }
-    60% {
-        content: "24";
-        color: var(--timer-color-normal);
-    }
-    61.667% {
-        content: "23";
-        color: var(--timer-color-normal);
-    }
-    63.333% {
-        content: "22";
-        color: var(--timer-color-normal);
-    }
-    65% {
-        content: "21";
-        color: var(--timer-color-normal);
-    }
-    66.667% {
-        content: "20";
-        color: var(--timer-color-normal);
-    }
-    68.333% {
-        content: "19";
-        color: var(--timer-color-normal);
-    }
-    70% {
-        content: "18";
-        color: var(--timer-color-normal);
-    }
-    71.667% {
-        content: "17";
-        color: var(--timer-color-normal);
-    }
-    73.333% {
-        content: "16";
-        color: var(--timer-color-normal);
-    }
-    75% {
-        content: "15";
-        color: var(--timer-color-normal);
-    }
-    76.667% {
-        content: "14";
-        color: var(--timer-color-normal);
-    }
-    78.333% {
-        content: "13";
-        color: var(--timer-color-normal);
-    }
-    80% {
-        content: "12";
-        color: var(--timer-color-normal);
-    }
-    81.667% {
-        content: "11";
-        color: var(--timer-color-normal);
-    }
-    83.333% {
-        content: "10";
-        color: var(--timer-color-warning);
-    }
-    85% {
-        content: "9";
-        color: var(--timer-color-warning);
-    }
-    86.667% {
-        content: "8";
-        color: var(--timer-color-warning);
-    }
-    88.333% {
-        content: "7";
-        color: var(--timer-color-warning);
-    }
-    90% {
-        content: "6";
-        color: var(--timer-color-warning);
-    }
-    91.667% {
-        content: "5";
-        color: var(--timer-color-warning);
-    }
-    93.333% {
-        content: "4";
-        color: var(--timer-color-warning);
-    }
-    95% {
-        content: "3";
-        color: var(--timer-color-warning);
-    }
-    96.667% {
-        content: "2";
-        color: var(--timer-color-warning);
-    }
-    98.333% {
-        content: "1";
-        color: var(--timer-color-warning);
-    }
-    100% {
-        content: "0";
-        color: var(--timer-color-warning);
-    }
+@keyframes time_bullet {
+  0% {
+    clip-path: inset(0 0% 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
 }

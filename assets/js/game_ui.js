@@ -11,7 +11,7 @@ function startScore() {
 
 function updateScore(points) {
   score += points;
-  scoreboardGlow();
+  pulsePoints();
   if (score < targetScore) {
     document.querySelector("#score_counter").textContent = `${score}/${targetScore}`;
   } else {
@@ -24,17 +24,17 @@ function resetScore() {
   score = 0;
 }
 
-function scoreboardGlow() {
-  let element = document.querySelector("#ctr_scoreboard");
-  element.classList.add("glow");
+function pulsePoints() {
+  let element = document.querySelector("#score_counter");
+  element.classList.add("pulse");
   element.addEventListener("animationend", (event) => {
     let animation = event.animationName;
     clearAnimation(element, animation);
   });
 }
 
-function scoreboardGlowRed() {
-  let element = document.querySelector("#ctr_scoreboard");
+function screenGlowRed() {
+  let element = document.querySelector("#game_glow_frame");
   element.classList.add("glow_red");
   element.addEventListener("animationend", (event) => {
     let animation = event.animationName;
@@ -53,9 +53,11 @@ let rank = 3;
 function decreaseRank(decreaseValue) {
   rank -= decreaseValue;
   console.log("rank decreased - current rank: " + rank);
-  scoreboardGlowRed();
-  setTimeout(updateRank, 1400);
-  // updateRank();
+  // setTimeout(updateRank, 1400);
+  updateRank();
+  if (isGameRunning) {
+    screenGlowRed();
+  }
 }
 
 function updateRank() {
@@ -91,10 +93,10 @@ function resetRank() {
 
 // // ===== TIMER =====
 function startTime() {
-  document.querySelector("#timer_countdown").classList.add("countdown");
+  document.querySelector("#time_bullet_sprite").classList.add("time_bullet");
   console.log("time started");
   delayedTimeAlarmSound();
-  document.querySelector("#timer_countdown").addEventListener("animationend", timeEnd);
+  document.querySelector("#time_bullet_sprite").addEventListener("animationend", timeEnd);
 }
 
 function timeEnd() {
@@ -103,38 +105,76 @@ function timeEnd() {
 }
 function stopTime() {
   clearDelayedTimeAlarmSound();
-  document.querySelector("#timer_countdown").classList.remove("countdown");
+  document.querySelector("#time_bullet_sprite").classList.remove("time_bullet");
 }
 
 // ===== START SCREEN (MAIN MENU) =====
 function showStartScreen() {
-  document.querySelector("#start_screen").classList.remove("hidden");
-  document.querySelector("#start_screen").classList.remove("fade_out");
-  document.querySelector("#start_screen").classList.add("fade_in");
+  let startScreen = document.querySelector("#start_screen");
+  let startBtn = document.querySelector("#start_btn");
+  startScreen.classList.remove("hidden");
+  startScreen.classList.remove("fade_out");
+  startScreen.classList.add("fade_in");
   playStartScreenSound();
-  document.querySelector("#start_screen").addEventListener("click", startButton);
+  startBtn.addEventListener("mouseover", () => {
+    btnPulseOn(startBtn);
+    });
+  startBtn.addEventListener("click", startButton);
+  startBtn.addEventListener("mouseout", () => {
+    btnPulseOff(startBtn);
+  });
   hideGameElements();
   hideUiElements();
 }
 
 // ===== GAME OVER SCREEN =====
 function showGameOverScreen() {
-  document.querySelector("#game_over").classList.remove("hidden");
-  document.querySelector("#game_over").classList.remove("fade_out");
-  document.querySelector("#game_over").classList.add("fade_in");
+  let gameOverScreen = document.querySelector("#game_over");
+  let goReplayBtn = document.querySelector("#go_replay_btn");
+  let goMmBtn = document.querySelector("#go_mm_btn");
+  gameOverScreen.classList.remove("hidden");
+  gameOverScreen.classList.remove("fade_out");
+  gameOverScreen.classList.add("fade_in");
   playGameOverScreenSound();
-  document.querySelector("#go_mm_btn").addEventListener("click", mainMenuButton);
-  document.querySelector("#go_replay_btn").addEventListener("click", restartButton);
+  goMmBtn.addEventListener("mouseover", () => {
+    btnPulseOn(goMmBtn);
+  });
+  goReplayBtn.addEventListener("mouseover", () => {
+    btnPulseOn(goReplayBtn);
+  });
+  goMmBtn.addEventListener("click", mainMenuButton);
+  goReplayBtn.addEventListener("click", restartButton);
+  goMmBtn.addEventListener("mouseout", () => {
+    btnPulseOff(goMmBtn);
+  });
+  goReplayBtn.addEventListener("mouseout", () => {
+    btnPulseOff(goReplayBtn);
+  });
 }
 
 // ===== NEXT LEVEL SCREEN =====
 function showLevelCompleteScreen() {
-  document.querySelector("#level_complete").classList.remove("hidden");
-  document.querySelector("#level_complete").classList.remove("fade_out");
-  document.querySelector("#level_complete").classList.add("fade_in");
+  let levelCompleteScreen = document.querySelector("#level_complete");
+  let lcMmBtn = document.querySelector("#lc_mm_btn");
+  let lcNlBtn = document.querySelector("#lc_nl_btn");
+  levelCompleteScreen.classList.remove("hidden");
+  levelCompleteScreen.classList.remove("fade_out");
+  levelCompleteScreen.classList.add("fade_in");
   playLevelCompleteScreenSound();
-  document.querySelector("#lc_mm_btn").addEventListener("click", mainMenuButton);
-  document.querySelector("#lc_nl_btn").addEventListener("click", nextLevelButton);
+  lcMmBtn.addEventListener("mouseover", () => {
+    btnPulseOn(lcMmBtn);
+  });
+  lcNlBtn.addEventListener("mouseover", () => {
+    btnPulseOn(lcNlBtn);
+  });
+  lcMmBtn.addEventListener("click", mainMenuButton);
+  lcNlBtn.addEventListener("click", nextLevelButton);
+  lcMmBtn.addEventListener("mouseout", () => {
+    btnPulseOff(lcMmBtn);
+  });
+  lcNlBtn.addEventListener("mouseout", () => {
+    btnPulseOff(lcNlBtn);
+  });
 }
 
 // ===== START BUTTON =====
@@ -201,4 +241,12 @@ function hideScreen(screen) {
       screen.classList.remove("fade_in");
     }
   });
+}
+
+function btnPulseOn (btnId) {
+  btnId.classList.add("pulse_btn");
+}
+
+function btnPulseOff (btnId) {
+  btnId.classList.remove("pulse_btn");
 }

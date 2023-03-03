@@ -66,7 +66,7 @@
 #ctr_howitzer {
     width: 15%;
     top: 80%;
-    left: 10%;
+    left: 5%;
     cursor: initial;
 }
 
@@ -496,10 +496,6 @@
 }
 
 /* --- Element disappear --- */
-.paused {
-    animation-play-state: paused;
-}
-
 .disappear {
     animation-name: disappear;
     animation-duration: 1s;
@@ -523,3 +519,7 @@
     }
 }
 
+/* --- other --- */
+.paused {
+    animation-play-state: paused;
+}

@@ -69,10 +69,10 @@ function stopGameElements() {
 
 // ===== EVALUATE WIN/LOOSE CONDITIONS =====
 function evaluateWinLooseConditions() {
-    if (score >= 100 && rank >= 1) {
+    if (score >= targetScore && rank >= 1) {
         gameEndMessage("win");
         showLevelCompleteScreen();
-    } else if (score < 100 && rank >= 1) {
+    } else if (score < targetScore && rank >= 1) {
         gameEndMessage("looseScore");
         showGameOverScreen();
     } else {

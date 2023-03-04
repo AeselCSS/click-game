@@ -12,10 +12,7 @@ function startUfo() {
   ufo.addEventListener("animationend", (event) => {
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
       ufoLanded();
-    }
-  });
-  ufo.addEventListener("animationend", (event) => {
-    if (event.animationName === "disappear") {
+    } else if (event.animationName === "disappear") {
       clearDelayedUfoSpawnSound();
       elementReset(ufo);
     }
@@ -50,13 +47,9 @@ function startEnemyJet() {
   enemyJet.classList.add("left_to_right1");
   enemyJet.addEventListener("mousedown", enemyJetClicked);
   enemyJet.addEventListener("animationend", (event) => {
-    // console.log(event.animationName);
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
       elementNotClicked(enemyJet);
-    }
-  });
-  enemyJet.addEventListener("animationend", (event) => {
-    if (event.animationName === "disappear") {
+    } else if (event.animationName === "disappear") {
       elementReset(enemyJet);
     }
   });
@@ -85,13 +78,9 @@ function startEnemyJet2() {
   enemyJet2.classList.add("right_to_left1");
   enemyJet2.addEventListener("mousedown", enemyJet2Clicked);
   enemyJet2.addEventListener("animationend", (event) => {
-    //   console.log(event.animationName);
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
       elementNotClicked(enemyJet2);
-    }
-  });
-  enemyJet2.addEventListener("animationend", (event) => {
-    if (event.animationName === "disappear") {
+    } else if (event.animationName === "disappear") {
       elementReset(enemyJet2);
     }
   });
@@ -120,13 +109,9 @@ function startEnemyJet3() {
   enemyJet3.classList.add("left_to_right2");
   enemyJet3.addEventListener("mousedown", enemyJet3Clicked);
   enemyJet3.addEventListener("animationend", (event) => {
-    //   console.log(event.animationName);
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
       elementNotClicked(enemyJet3);
-    }
-  });
-  enemyJet3.addEventListener("animationend", (event) => {
-    if (event.animationName === "disappear") {
+    } else if (event.animationName === "disappear") {
       elementReset(enemyJet3);
     }
   });
@@ -155,13 +140,9 @@ function startEnemySpyBalloon() {
   enemySpyBalloon.classList.add("right_to_left3");
   enemySpyBalloon.addEventListener("mousedown", enemySpyBalloonClicked);
   enemySpyBalloon.addEventListener("animationend", (event) => {
-    //   console.log(event.animationName);
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
       elementNotClicked(enemySpyBalloon);
-    }
-  });
-  enemySpyBalloon.addEventListener("animationend", (event) => {
-    if (event.animationName === "disappear") {
+    } else if (event.animationName === "disappear") {
       elementReset(enemySpyBalloon);
     }
   });
@@ -190,13 +171,9 @@ function startCivilianAirplane() {
   civilianAirplane.classList.add("left_to_right3");
   civilianAirplane.addEventListener("mousedown", civilianAirplaneClicked);
   civilianAirplane.addEventListener("animationend", (event) => {
-    //   console.log(event.animationName);
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
       elementNotClicked(civilianAirplane);
-    }
-  });
-  civilianAirplane.addEventListener("animationend", (event) => {
-    if (event.animationName === "disappear") {
+    } else if (event.animationName === "disappear") {
       elementReset(civilianAirplane);
     }
   });
@@ -225,13 +202,9 @@ function startCivilianBalloon() {
   civilianBalloon.classList.add("right_to_left2");
   civilianBalloon.addEventListener("mousedown", civilianBalloonClicked);
   civilianBalloon.addEventListener("animationend", (event) => {
-    //   console.log(event.animationName);
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
       elementNotClicked(civilianBalloon);
-    }
-  });
-  civilianBalloon.addEventListener("animationend", (event) => {
-    if (event.animationName === "disappear") {
+    } else if (event.animationName === "disappear") {
       elementReset(civilianBalloon);
     }
   });
@@ -293,50 +266,45 @@ function elementStop(element) {
   element.querySelector(".sprite_element").classList.remove("disappear");
   element.querySelector(".sprite_explosion").classList.add("hidden");
   element.querySelector(".sprite_explosion").classList.remove("explosion");
-  element.classList.remove(
-    "position1",
-    "position2",
-    "position3",
-    "position4",
-    "position_top1",
-    "position_top2",
-    "position_top3"
-  );
-  element.classList.remove("delay1", "delay2", "delay3", "delay4");
-  element.classList.remove("duration1", "duration2", "duration3", "duration4", "duration5", "duration6");
-  element.classList.remove(
-    "left_to_right1",
-    "left_to_right2",
-    "left_to_right3",
-    "left_to_right4",
-    "right_to_left1",
-    "right_to_left2",
-    "right_to_left3",
-    "right_to_left4",
-    "top_to_bottom1",
-    "top_to_bottom2",
-    "top_to_bottom3"
-  );
+  if (element === document.querySelector("#ctr_ufo")) {
+    element.classList.remove("position_top1", "position_top2", "position_top3");
+    element.classList.remove("delay4");
+    element.classList.remove("duration4", "duration5", "duration6");
+    element.classList.remove("top_to_bottom1", "top_to_bottom2", "top_to_bottom3");
+  } else {
+    element.classList.remove("position1", "position2", "position3", "position4");
+    element.classList.remove("delay1", "delay2", "delay3", "delay4");
+    element.classList.remove("duration1", "duration2", "duration3", "duration4", "duration5", "duration6");
+    element.classList.remove("left_to_right1", "left_to_right2", "left_to_right3", "left_to_right4");
+    element.classList.remove("right_to_left1", "right_to_left2", "right_to_left3", "right_to_left4");
+  }
   element.classList.remove("paused");
   element.offsetLeft;
 }
 
 function elementRespawn(element) {
-  // add eventlisterners based on element value
-  if (element === document.querySelector("#ctr_ufo")) {
-    element.addEventListener("mousedown", ufoClicked);
-  } else if (element === document.querySelector("#ctr_jet")) {
-    element.addEventListener("mousedown", enemyJetClicked);
-  } else if (element === document.querySelector("#ctr_jet2")) {
-    element.addEventListener("mousedown", enemyJet2Clicked);
-  } else if (element === document.querySelector("#ctr_jet3")) {
-    element.addEventListener("mousedown", enemyJet3Clicked);
-  } else if (element === document.querySelector("#ctr_spy_balloon")) {
-    element.addEventListener("mousedown", enemySpyBalloonClicked);
-  } else if (element === document.querySelector("#ctr_airplane")) {
-    element.addEventListener("mousedown", civilianAirplaneClicked);
-  } else if (element === document.querySelector("#ctr_air_balloon")) {
-    element.addEventListener("mousedown", civilianBalloonClicked);
+  switch (element) {
+    case document.querySelector("#ctr_ufo"):
+      element.addEventListener("mousedown", ufoClicked);
+      break;
+    case document.querySelector("#ctr_jet"):
+      element.addEventListener("mousedown", enemyJetClicked);
+      break;
+    case document.querySelector("#ctr_jet2"):
+      element.addEventListener("mousedown", enemyJet2Clicked);
+      break;
+    case document.querySelector("#ctr_jet3"):
+      element.addEventListener("mousedown", enemyJet3Clicked);
+      break;
+    case document.querySelector("#ctr_spy_balloon"):
+      element.addEventListener("mousedown", enemySpyBalloonClicked);
+      break;
+    case document.querySelector("#ctr_airplane"):
+      element.addEventListener("mousedown", civilianAirplaneClicked);
+      break;
+    case document.querySelector("#ctr_air_balloon"):
+      element.addEventListener("mousedown", civilianBalloonClicked);
+      break;
   }
   // add position, speed, delay and movement classes at "random"
   if (element === document.querySelector("#ctr_ufo")) {

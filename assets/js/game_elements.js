@@ -2,12 +2,12 @@
 // ===== ELEMENT SPECIFIC GAME ELEMENTS =====
 // ===== UFO =====
 function startUfo() {
-  let ufo = document.querySelector("#ctr_ufo");
-  ufo.classList.add("position_top1");
-  ufo.classList.add("delay4");
-  ufo.classList.add("duration4");
-  ufo.classList.add("top_to_bottom1");
+  const ufo = document.querySelector("#ctr_ufo");
+  // assign start position, delay, duration and animation direction
+  ufo.classList.add("position_top1", "delay4", "duration4", "top_to_bottom1");
+  // add spawn "warning" sound when element enters screen
   delayedUfoSpawnSound();
+  // assign event listeners
   ufo.addEventListener("mousedown", ufoClicked);
   ufo.addEventListener("animationend", (event) => {
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
@@ -20,7 +20,7 @@ function startUfo() {
 }
 
 function stopUfo() {
-  let ufo = document.querySelector("#ctr_ufo");
+  const ufo = document.querySelector("#ctr_ufo");
   clearDelayedUfoSpawnSound();
   elementStop(ufo);
 }
@@ -32,7 +32,7 @@ function ufoLanded() {
 
 function ufoClicked() {
   console.log("UFO CLICKED");
-  elementClick();
+  howitzerFire();
   playClickElementSound("enemy");
   this.removeEventListener("mousedown", ufoClicked);
   elementPaused.call(this);
@@ -40,11 +40,10 @@ function ufoClicked() {
 
 // ===== ENEMY JET =====
 function startEnemyJet() {
-  let enemyJet = document.querySelector("#ctr_jet");
-  enemyJet.classList.add("position1");
-  enemyJet.classList.add("delay1");
-  enemyJet.classList.add("duration3");
-  enemyJet.classList.add("left_to_right1");
+  const enemyJet = document.querySelector("#ctr_jet");
+  // assign start position, delay, duration and animation direction
+  enemyJet.classList.add("position1", "delay1", "duration3", "left_to_right1");
+  // assign event listeners
   enemyJet.addEventListener("mousedown", enemyJetClicked);
   enemyJet.addEventListener("animationend", (event) => {
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
@@ -57,7 +56,7 @@ function startEnemyJet() {
 
 function enemyJetClicked() {
   console.log("ENEMY JET CLICKED");
-  elementClick();
+  howitzerFire();
   playClickElementSound("enemy");
   this.removeEventListener("mousedown", enemyJetClicked);
   updateScore(3);
@@ -65,17 +64,16 @@ function enemyJetClicked() {
 }
 
 function stopEnemyJet() {
-  let enemyJet = document.querySelector("#ctr_jet");
+  const enemyJet = document.querySelector("#ctr_jet");
   elementStop(enemyJet);
 }
 
 // ===== ENEMY JET 2 =====
 function startEnemyJet2() {
-  let enemyJet2 = document.querySelector("#ctr_jet2");
-  enemyJet2.classList.add("position2");
-  enemyJet2.classList.add("delay2");
-  enemyJet2.classList.add("duration2");
-  enemyJet2.classList.add("right_to_left1");
+  const enemyJet2 = document.querySelector("#ctr_jet2");
+  // assign start position, delay, duration and animation direction
+  enemyJet2.classList.add("position2", "delay2", "duration2", "right_to_left1");
+  // assign event listeners
   enemyJet2.addEventListener("mousedown", enemyJet2Clicked);
   enemyJet2.addEventListener("animationend", (event) => {
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
@@ -88,7 +86,7 @@ function startEnemyJet2() {
 
 function enemyJet2Clicked() {
   console.log("ENEMY JET 2 CLICKED");
-  elementClick();
+  howitzerFire();
   playClickElementSound("enemy");
   this.removeEventListener("mousedown", enemyJet2Clicked);
   updateScore(3);
@@ -96,17 +94,16 @@ function enemyJet2Clicked() {
 }
 
 function stopEnemyJet2() {
-  let enemyJet2 = document.querySelector("#ctr_jet2");
+  const enemyJet2 = document.querySelector("#ctr_jet2");
   elementStop(enemyJet2);
 }
 
 // ===== ENEMY JET 3 =====
 function startEnemyJet3() {
-  let enemyJet3 = document.querySelector("#ctr_jet3");
-  enemyJet3.classList.add("position3");
-  enemyJet3.classList.add("delay3");
-  enemyJet3.classList.add("duration3");
-  enemyJet3.classList.add("left_to_right2");
+  const enemyJet3 = document.querySelector("#ctr_jet3");
+  // assign start position, delay, duration and animation direction
+  enemyJet3.classList.add("position3", "delay3", "duration3", "left_to_right2");
+  // assign event listeners
   enemyJet3.addEventListener("mousedown", enemyJet3Clicked);
   enemyJet3.addEventListener("animationend", (event) => {
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
@@ -119,7 +116,7 @@ function startEnemyJet3() {
 
 function enemyJet3Clicked() {
   console.log("ENEMY JET 3 CLICKED");
-  elementClick();
+  howitzerFire();
   playClickElementSound("enemy");
   this.removeEventListener("mousedown", enemyJet3Clicked);
   updateScore(3);
@@ -127,17 +124,16 @@ function enemyJet3Clicked() {
 }
 
 function stopEnemyJet3() {
-  let enemyJet3 = document.querySelector("#ctr_jet3");
+  const enemyJet3 = document.querySelector("#ctr_jet3");
   elementStop(enemyJet3);
 }
 
 // ===== ENEMY SPY BALLOON =====
 function startEnemySpyBalloon() {
-  let enemySpyBalloon = document.querySelector("#ctr_spy_balloon");
-  enemySpyBalloon.classList.add("position1");
-  enemySpyBalloon.classList.add("delay1");
-  enemySpyBalloon.classList.add("duration3");
-  enemySpyBalloon.classList.add("right_to_left3");
+  const enemySpyBalloon = document.querySelector("#ctr_spy_balloon");
+  // assign start position, delay, duration and animation direction
+  enemySpyBalloon.classList.add("position1", "delay1", "duration3", "left_to_right3");
+  // assign event listeners
   enemySpyBalloon.addEventListener("mousedown", enemySpyBalloonClicked);
   enemySpyBalloon.addEventListener("animationend", (event) => {
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
@@ -150,7 +146,7 @@ function startEnemySpyBalloon() {
 
 function enemySpyBalloonClicked() {
   console.log("ENEMY SPY BALLOON CLICKED");
-  elementClick();
+  howitzerFire();
   playClickElementSound("enemy");
   this.removeEventListener("mousedown", enemySpyBalloonClicked);
   updateScore(5);
@@ -158,17 +154,16 @@ function enemySpyBalloonClicked() {
 }
 
 function stopEnemySpyBalloon() {
-  let enemySpyBalloon = document.querySelector("#ctr_spy_balloon");
+  const enemySpyBalloon = document.querySelector("#ctr_spy_balloon");
   elementStop(enemySpyBalloon);
 }
 
 // ===== CIVILIAN AIRPLANE =====
 function startCivilianAirplane() {
-  let civilianAirplane = document.querySelector("#ctr_airplane");
-  civilianAirplane.classList.add("position2");
-  civilianAirplane.classList.add("delay2");
-  civilianAirplane.classList.add("duration4");
-  civilianAirplane.classList.add("left_to_right3");
+  const civilianAirplane = document.querySelector("#ctr_airplane");
+  // assign start position, delay, duration and animation direction
+  civilianAirplane.classList.add("position2", "delay2", "duration4", "left_to_right3");
+  // assign event listeners
   civilianAirplane.addEventListener("mousedown", civilianAirplaneClicked);
   civilianAirplane.addEventListener("animationend", (event) => {
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
@@ -181,7 +176,7 @@ function startCivilianAirplane() {
 
 function civilianAirplaneClicked() {
   console.log("CIVILIAN AIRPLANE CLICKED");
-  elementClick();
+  howitzerFire();
   playClickElementSound("civilian");
   this.removeEventListener("mousedown", civilianAirplaneClicked);
   decreaseRank(1);
@@ -189,17 +184,16 @@ function civilianAirplaneClicked() {
 }
 
 function stopCivilianAirplane() {
-  let civilianAirplane = document.querySelector("#ctr_airplane");
+  const civilianAirplane = document.querySelector("#ctr_airplane");
   elementStop(civilianAirplane);
 }
 
 // ===== CIVILIAN BALLOON =====
 function startCivilianBalloon() {
-  let civilianBalloon = document.querySelector("#ctr_air_balloon");
-  civilianBalloon.classList.add("position3");
-  civilianBalloon.classList.add("delay3");
-  civilianBalloon.classList.add("duration6");
-  civilianBalloon.classList.add("right_to_left2");
+  const civilianBalloon = document.querySelector("#ctr_air_balloon");
+  // assign start position, delay, duration and animation direction
+  civilianBalloon.classList.add("position3", "delay3", "duration6", "right_to_left2");
+  // assign event listeners
   civilianBalloon.addEventListener("mousedown", civilianBalloonClicked);
   civilianBalloon.addEventListener("animationend", (event) => {
     if (event.animationName !== "explosion" && event.animationName !== "disappear") {
@@ -212,7 +206,7 @@ function startCivilianBalloon() {
 
 function civilianBalloonClicked() {
   console.log("CIVILIAN BALLOON CLICKED");
-  elementClick();
+  howitzerFire();
   playClickElementSound("civilian");
   this.removeEventListener("mousedown", civilianBalloonClicked);
   decreaseRank(1);
@@ -220,13 +214,13 @@ function civilianBalloonClicked() {
 }
 
 function stopCivilianBalloon() {
-  let civilianBalloon = document.querySelector("#ctr_air_balloon");
+  const civilianBalloon = document.querySelector("#ctr_air_balloon");
   elementStop(civilianBalloon);
 }
 
 // ===== GAME ELEMENT GENERIC FUNCTIONS =====
-function elementClick() {
-  let howitzer = document.querySelector("#ctr_howitzer");
+function howitzerFire() {
+  const howitzer = document.querySelector("#ctr_howitzer");
   howitzer.querySelector("img").classList.add("howitzer_fire");
   howitzer.querySelector("img").addEventListener("animationend", () => {
     howitzer.querySelector("img").classList.remove("howitzer_fire");
@@ -238,20 +232,20 @@ function elementNotClicked(element) {
 }
 
 function elementPaused() {
-  let element = this;
+  const element = this;
   element.classList.add("paused");
   elementExplosion.call(this);
 }
 
 function elementExplosion() {
-  let element = this;
+  const element = this;
   element.querySelector(".sprite_explosion").classList.remove("hidden");
   element.querySelector(".sprite_explosion").classList.add("explosion");
   elementDisappear.call(this);
 }
 
 function elementDisappear() {
-  let element = this;
+  const element = this;
   element.querySelector(".sprite_element").classList.add("disappear");
 }
 
@@ -316,17 +310,17 @@ function elementRespawn(element) {
 }
 
 function randomMovementElements(element) {
-  let position = Math.floor(Math.random() * 4) + 1;
+  const position = Math.floor(Math.random() * 4) + 1;
   element.classList.add("position" + position);
 
-  let delay = Math.floor(Math.random() * 4) + 1;
+  const delay = Math.floor(Math.random() * 4) + 1;
   element.classList.add("delay" + delay);
 
-  let duration = Math.floor(Math.random() * 3) + 1;
+  const duration = Math.floor(Math.random() * 3) + 1;
   element.classList.add("duration" + duration);
 
-  let leftOrRight = Math.floor(Math.random() * 2) + 1;
-  let movement = Math.floor(Math.random() * 4) + 1;
+  const leftOrRight = Math.floor(Math.random() * 2) + 1;
+  const movement = Math.floor(Math.random() * 4) + 1;
   if (leftOrRight === 1) {
     element.classList.add("left_to_right" + movement);
   } else {
@@ -335,15 +329,15 @@ function randomMovementElements(element) {
 }
 
 function randomMovementUfo(element) {
-  let position = Math.floor(Math.random() * 3) + 1;
+  const position = Math.floor(Math.random() * 3) + 1;
   element.classList.add("position_top" + position);
 
-  let delay = 4;
+  const delay = 4;
   element.classList.add("delay" + delay);
 
-  let duration = Math.floor(Math.random() * 3) + 4;
+  const duration = Math.floor(Math.random() * 3) + 4;
   element.classList.add("duration" + duration);
 
-  let movement = Math.floor(Math.random() * 3) + 1;
+  const movement = Math.floor(Math.random() * 3) + 1;
   element.classList.add("top_to_bottom" + movement);
 }

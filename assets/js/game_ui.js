@@ -25,19 +25,19 @@ function resetScore() {
 }
 
 function pulsePoints() {
-  let element = document.querySelector("#score_counter");
+  const element = document.querySelector("#score_counter");
   element.classList.add("pulse");
   element.addEventListener("animationend", (event) => {
-    let animation = event.animationName;
+    const animation = event.animationName;
     clearAnimation(element, animation);
   });
 }
 
 function screenGlowRed() {
-  let element = document.querySelector("#game_glow_frame");
+  const element = document.querySelector("#game_glow_frame");
   element.classList.add("glow_red");
   element.addEventListener("animationend", (event) => {
-    let animation = event.animationName;
+    const animation = event.animationName;
     clearAnimation(element, animation);
   });
 }
@@ -110,8 +110,8 @@ function stopTime() {
 
 // ===== START SCREEN (MAIN MENU) =====
 function showStartScreen() {
-  let startScreen = document.querySelector("#start_screen");
-  let startBtn = document.querySelector("#start_btn");
+  const startScreen = document.querySelector("#start_screen");
+  const startBtn = document.querySelector("#start_btn");
   startScreen.classList.remove("hidden");
   startScreen.classList.remove("fade_out");
   startScreen.classList.add("fade_in");
@@ -129,9 +129,9 @@ function showStartScreen() {
 
 // ===== GAME OVER SCREEN =====
 function showGameOverScreen() {
-  let gameOverScreen = document.querySelector("#game_over");
-  let goReplayBtn = document.querySelector("#go_replay_btn");
-  let goMmBtn = document.querySelector("#go_mm_btn");
+  const gameOverScreen = document.querySelector("#game_over");
+  const goReplayBtn = document.querySelector("#go_replay_btn");
+  const goMmBtn = document.querySelector("#go_mm_btn");
   gameOverScreen.classList.remove("hidden");
   gameOverScreen.classList.remove("fade_out");
   gameOverScreen.classList.add("fade_in");
@@ -154,9 +154,9 @@ function showGameOverScreen() {
 
 // ===== NEXT LEVEL SCREEN =====
 function showLevelCompleteScreen() {
-  let levelCompleteScreen = document.querySelector("#level_complete");
-  let lcMmBtn = document.querySelector("#lc_mm_btn");
-  let lcNlBtn = document.querySelector("#lc_nl_btn");
+  const levelCompleteScreen = document.querySelector("#level_complete");
+  const lcMmBtn = document.querySelector("#lc_mm_btn");
+  const lcNlBtn = document.querySelector("#lc_nl_btn");
   levelCompleteScreen.classList.remove("hidden");
   levelCompleteScreen.classList.remove("fade_out");
   levelCompleteScreen.classList.add("fade_in");
@@ -179,7 +179,7 @@ function showLevelCompleteScreen() {
 
 // ===== START BUTTON =====
 function startButton() {
-  let startScreen = document.querySelector("#start_screen");
+  const startScreen = document.querySelector("#start_screen");
   startScreen.classList.add("fade_out");
   hideScreen(startScreen);
   startGame();
@@ -187,7 +187,7 @@ function startButton() {
 
 // ===== RESTART BUTTON =====
 function restartButton() {
-  let gameOverScreen = document.querySelector("#game_over");
+  const gameOverScreen = document.querySelector("#game_over");
   gameOverScreen.classList.add("fade_out");
   hideScreen(gameOverScreen);
   startGame();
@@ -195,7 +195,7 @@ function restartButton() {
 
 // ===== NEXT LEVEL BUTTON =====
 function nextLevelButton() {
-  let levelCompleteScreen = document.querySelector("#level_complete");
+  const levelCompleteScreen = document.querySelector("#level_complete");
   levelCompleteScreen.classList.add("fade_out");
   hideScreen(levelCompleteScreen);
   startGame();
@@ -203,8 +203,8 @@ function nextLevelButton() {
 
 // ===== MAIN MENU BUTTON =====
 function mainMenuButton() {
-  let gameOverScreen = document.querySelector("#game_over");
-  let levelCompleteScreen = document.querySelector("#level_complete");
+  const gameOverScreen = document.querySelector("#game_over");
+  const levelCompleteScreen = document.querySelector("#level_complete");
   gameOverScreen.classList.add("fade_out");
   hideScreen(gameOverScreen);
   levelCompleteScreen.classList.add("fade_out");

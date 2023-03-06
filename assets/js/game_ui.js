@@ -183,6 +183,7 @@ function startButton() {
   startScreen.classList.add("fade_out");
   hideScreen(startScreen);
   startGame();
+  document.querySelector("#start_btn").removeEventListener("click", startButton);
 }
 
 // ===== RESTART BUTTON =====
@@ -191,6 +192,7 @@ function restartButton() {
   gameOverScreen.classList.add("fade_out");
   hideScreen(gameOverScreen);
   startGame();
+  document.querySelector("#go_replay_btn").removeEventListener("click", restartButton);
 }
 
 // ===== NEXT LEVEL BUTTON =====
@@ -199,6 +201,7 @@ function nextLevelButton() {
   levelCompleteScreen.classList.add("fade_out");
   hideScreen(levelCompleteScreen);
   startGame();
+  document.querySelector("#lc_nl_btn").removeEventListener("click", nextLevelButton);
 }
 
 // ===== MAIN MENU BUTTON =====
@@ -210,6 +213,8 @@ function mainMenuButton() {
   levelCompleteScreen.classList.add("fade_out");
   hideScreen(levelCompleteScreen);
   document.querySelector("#start_screen").classList.remove("hidden");
+  document.querySelector("#go_mm_btn").removeEventListener("click", mainMenuButton);
+  document.querySelector("#lc_mm_btn").removeEventListener("click", mainMenuButton);
   showStartScreen();
 }
 

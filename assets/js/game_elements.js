@@ -260,7 +260,7 @@ function elementStop(element) {
   element.querySelector(".sprite_element").classList.remove("disappear");
   element.querySelector(".sprite_explosion").classList.add("hidden");
   element.querySelector(".sprite_explosion").classList.remove("explosion");
-  if (element === document.querySelector("#ctr_ufo")) {
+  if (element.id === "ctr_ufo") {
     element.classList.remove("position_top1", "position_top2", "position_top3");
     element.classList.remove("delay4");
     element.classList.remove("duration4", "duration5", "duration6");
@@ -277,31 +277,31 @@ function elementStop(element) {
 }
 
 function elementRespawn(element) {
-  switch (element) {
-    case document.querySelector("#ctr_ufo"):
+  switch (element.id) {
+    case "ctr_ufo":
       element.addEventListener("mousedown", ufoClicked);
       break;
-    case document.querySelector("#ctr_jet"):
+    case "ctr_jet":
       element.addEventListener("mousedown", enemyJetClicked);
       break;
-    case document.querySelector("#ctr_jet2"):
+    case "ctr_jet2":
       element.addEventListener("mousedown", enemyJet2Clicked);
       break;
-    case document.querySelector("#ctr_jet3"):
+    case "ctr_jet3":
       element.addEventListener("mousedown", enemyJet3Clicked);
       break;
-    case document.querySelector("#ctr_spy_balloon"):
+    case "ctr_spy_balloon":
       element.addEventListener("mousedown", enemySpyBalloonClicked);
       break;
-    case document.querySelector("#ctr_airplane"):
+    case "ctr_airplane":
       element.addEventListener("mousedown", civilianAirplaneClicked);
       break;
-    case document.querySelector("#ctr_air_balloon"):
+    case "ctr_air_balloon":
       element.addEventListener("mousedown", civilianBalloonClicked);
       break;
   }
   // add position, speed, delay and movement classes at "random"
-  if (element === document.querySelector("#ctr_ufo")) {
+  if (element.id === "ctr_ufo") {
     randomMovementUfo(element);
     delayedUfoSpawnSound();
   } else {

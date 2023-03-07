@@ -95,7 +95,6 @@ function stopNonGameScreenSounds () {
 }
 
 function stopGameSounds () {
-    clearDelayedUfoSpawnSound();
     document.querySelector("#audio_game_theme").pause();
     document.querySelector("#audio_game_theme").currentTime = 0;
     document.querySelector("#audio_explosion").pause();
